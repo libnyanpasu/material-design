@@ -14,7 +14,7 @@
     "@types/node": "^22.5.2",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240830",
+    "babel-plugin-react-compiler": "0.0.0-experimental-58c2b1c-20241007",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "eslint": "^9.9.1",

@@ -8,8 +8,8 @@
     "@nyanpasu/material-design-components": "workspace:^",
     "@nyanpasu/material-design-libs": "workspace:^",
     "@radix-ui/react-slot": "^1.1.0",
-    "react": "19.0.0-rc-e56f4ae3-20240830",
-    "react-dom": "19.0.0-rc-e56f4ae3-20240830"
+    "react": "19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "19.0.0-rc-fb9a90fa48-20240614"
   },
   "devDependencies": {
     "@types/react": "npm:types-react@rc",
