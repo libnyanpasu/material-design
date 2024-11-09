@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@nyanpasu/material-design-react": "workspace:^",
-    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240830",
-    "react": "19.0.0-rc-d5bba18b-20241009",
-    "react-dom": "19.0.0-rc-d5bba18b-20241009",
+    "babel-plugin-react-compiler": "0.0.0-experimental-fe484b5-20240912",
+    "react": "19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
     "next": "15.0.3"
   },
   "devDependencies": {
