@@ -1,0 +1,23 @@
+{
+  "name": "@nyanpasu/next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@nyanpasu/material-design-react": "workspace:^",
+    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240830",
+    "react": "19.0.0-rc-d5bba18b-20241009",
+    "react-dom": "19.0.0-rc-d5bba18b-20241009",
+    "next": "15.0.3"
+  },
+  "devDependencies": {
+    "eslint-config-next": "15.0.3",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
+  }
+}

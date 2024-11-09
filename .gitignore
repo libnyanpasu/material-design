@@ -1,0 +1,8 @@
+node_modules
+/.pnp
+.pnp.js
+.dist
+.DS_Store
+*.pem
+.env
+*.tsbuildinfo
