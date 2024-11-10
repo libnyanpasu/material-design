@@ -17,8 +17,8 @@
     "@radix-ui/react-slot": "^1.1.0",
     "ahooks": "^3.8.1",
     "framer-motion": "12.0.0-alpha.1",
-    "react": "19.0.0-rc-d5bba18b-20241009",
-    "react-dom": "19.0.0-rc-d5bba18b-20241009"
+    "react": "19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "19.0.0-rc-fb9a90fa48-20240614"
   },
   "devDependencies": {
     "@types/react": "npm:types-react@rc",
