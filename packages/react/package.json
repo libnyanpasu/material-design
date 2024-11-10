@@ -2,14 +2,21 @@
   "name": "@nyanpasu/material-design-react",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rslib build",
+    "dev": "rslib build --watch"
   },
   "dependencies": {
     "@nyanpasu/material-design-components": "workspace:^",
@@ -21,6 +28,7 @@
     "react-dom": "19.0.0-rc-d5bba18b-20241009"
   },
   "devDependencies": {
+    "@rsbuild/plugin-react": "^1.0.7",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc"
   }
