@@ -1,0 +1,11 @@
+{
+  "name": "@nyanpasu/material-design-components",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@nyanpasu/material-design-libs": "workspace:^"
+  }
+}
