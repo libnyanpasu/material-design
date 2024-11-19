@@ -4,14 +4,14 @@ import {
 } from "@nyanpasu/material-design-components";
 import { cn } from "@nyanpasu/material-design-libs";
 import { Slot } from "@radix-ui/react-slot";
-import { lazy, Suspense, type ButtonHTMLAttributes } from "react";
 import { useRipple } from "../ripple";
 import { chains } from "../utils/chian";
+import React from "react";
 
-const Ripple = lazy(() => import("../ripple/ripple"));
+const Ripple = React.lazy(() => import("../ripple/ripple"));
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled">,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "disabled">,
     ButtonVariantsProps {
   asChild?: boolean;
 }
@@ -37,9 +37,9 @@ export const Button = ({
       {children}
 
       {ripple && (
-        <Suspense>
+        <React.Suspense>
           <Ripple ripples={ripple.ripples} onClear={ripple.onClear} />
-        </Suspense>
+        </React.Suspense>
       )}
     </Comp>
   );

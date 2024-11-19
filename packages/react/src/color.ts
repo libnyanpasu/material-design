@@ -1,1 +1,3 @@
-export * from "@nyanpasu/material-design-libs/color";
+import { createTheme } from "@nyanpasu/material-design-libs";
+
+export { createTheme };

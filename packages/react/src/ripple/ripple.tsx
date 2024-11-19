@@ -7,10 +7,10 @@ import {
   LazyMotion,
   motion,
 } from "framer-motion";
-import type { Key } from "react";
+import React from "react";
 
 export type RippleConfig = {
-  key: Key;
+  key: React.Key;
   x: number;
   y: number;
   size: number;
@@ -19,7 +19,7 @@ export type RippleConfig = {
 export interface RippleProps {
   ripples: RippleConfig[];
   color?: string;
-  onClear: (key: Key) => void;
+  onClear: (key: React.Key) => void;
 }
 
 export const Ripple = ({ ripples, color, onClear }: RippleProps) => {

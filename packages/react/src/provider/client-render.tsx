@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme } from "@nyanpasu/material-design-libs/color";
+import { createTheme } from "@nyanpasu/material-design-libs";
 
 export const ClientRender = () => {
   createTheme("#005cbb");

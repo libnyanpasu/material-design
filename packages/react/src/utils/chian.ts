@@ -1,6 +1,6 @@
-import type { SyntheticEvent } from "react";
+import React from "react";
 
-export function chains<T extends SyntheticEvent>(
+export function chains<T extends React.SyntheticEvent>(
   ...handlers: Array<((event: T) => void) | undefined>
 ) {
   return (event: T) => {

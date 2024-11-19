@@ -1,13 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import type { Key, MouseEvent } from "react";
+import React from "react";
 import type { RippleConfig } from "./ripple";
 
 export const useRipple = () => {
-  const [ripples, setRipples] = useState<RippleConfig[]>([]);
+  const [ripples, setRipples] = React.useState<RippleConfig[]>([]);
 
-  const onClick = useCallback((e: MouseEvent) => {
+  const onClick = React.useCallback((e: React.MouseEvent) => {
     const target = e.currentTarget;
 
     const size = Math.max(target.clientWidth, target.clientHeight);
@@ -24,7 +23,7 @@ export const useRipple = () => {
     ]);
   }, []);
 
-  const onClear = useCallback((key: Key) => {
+  const onClear = React.useCallback((key: React.Key) => {
     setRipples((prev) => prev.filter((ripple) => ripple.key !== key));
   }, []);
 
