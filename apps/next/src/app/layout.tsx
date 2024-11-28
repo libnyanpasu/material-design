@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { MDProvider } from "@nyanpasu/material-design-react";
+import Providers from "@/components/providers";
 
 export const metadata: Metadata = {
   title: "Nyanpasu Material You",
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        <MDProvider>{children}</MDProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
