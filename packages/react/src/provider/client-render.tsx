@@ -1,7 +1,8 @@
-import { createTheme } from "@nyanpasu/material-design-libs";
+import React from "react";
+import { useTheme } from "../hooks";
 
-export const ClientRender = () => {
-  createTheme("#005cbb");
+export const ClientRender = ({ children }: { children?: React.ReactNode }) => {
+  useTheme();
 
-  return null;
+  return children ? <>{children}</> : null;
 };
