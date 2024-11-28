@@ -1,11 +1,19 @@
 {
   "name": "@nyanpasu/material-design-components",
-  "type": "module",
-  "main": "index.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "dependencies": {
     "@nyanpasu/material-design-libs": "workspace:^"
+  },
+  "peerDependencies": {
+    "@nyanpasu/material-design-libs": "*"
   }
 }

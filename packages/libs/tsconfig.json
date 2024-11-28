@@ -16,9 +16,7 @@
     "isolatedModules": true,
     "declaration": true,
     "composite": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "outDir": "./dist"
-  }
+    "outDir": "./dist",
+  },
+  "include": ["src"],
 }

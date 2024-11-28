@@ -1,7 +1,20 @@
 {
   "name": "@nyanpasu/material-design-libs",
-  "main": "index.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "peerDependencies": {
+    "@material/material-color-utilities": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "lodash-es": "*",
+    "tailwind-merge": "*"
   }
 }

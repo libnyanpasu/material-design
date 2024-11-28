@@ -16,10 +16,7 @@
     "isolatedModules": true,
     "declaration": true,
     "composite": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
     "outDir": "./dist"
   },
-  "include": ["src", "button", "index.ts"]
+  "include": ["src", "index.ts"]
 }
