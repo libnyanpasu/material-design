@@ -24,8 +24,7 @@
     "@types/react-dom": "npm:types-react-dom@rc"
   },
   "peerDependencies": {
-    "ahooks": "*",
-    "framer-motion": "^12.0.0-alpha.1",
+    "framer-motion": "^12.0.0-alpha.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
