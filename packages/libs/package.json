@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w"
   },
   "peerDependencies": {
