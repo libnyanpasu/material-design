@@ -2,7 +2,7 @@ import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
 
 export const buttonVariants = tcva(
   [
-    "h-10 min-w-16 text-sm font-medium",
+    "h-10 text-sm font-medium",
     "transition-shadow",
     "rounded-full",
     "cursor-pointer select-none",
@@ -39,6 +39,10 @@ export const buttonVariants = tcva(
         true: "cursor-not-allowed shadow-none hover:shadow-none focus:shadow-none",
         false: "",
       },
+      icon: {
+        true: "p-0",
+        false: "min-w-16",
+      },
     },
     compoundVariants: [
       {
@@ -67,10 +71,20 @@ export const buttonVariants = tcva(
         className:
           "bg-gray-900/20 text-gray-900/40 hover:brightness-100 hover:shadow-container-xl",
       },
+      {
+        icon: true,
+        className: "w-10",
+      },
+      {
+        variant: "fab",
+        icon: true,
+        className: "w-14",
+      },
     ],
     defaultVariants: {
       variant: "basic",
       disabled: false,
+      icon: false,
     },
   },
 );

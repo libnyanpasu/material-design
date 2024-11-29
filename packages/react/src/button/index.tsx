@@ -4,9 +4,9 @@ import {
 } from "@nyanpasu/material-design-components";
 import { cn } from "@nyanpasu/material-design-libs";
 import { Slot } from "@radix-ui/react-slot";
+import React from "react";
 import { useRipple } from "../ripple";
 import { chains } from "../utils/chian";
-import React from "react";
 
 const Ripple = React.lazy(() => import("../ripple/ripple"));
 
@@ -20,6 +20,7 @@ export const Button = ({
   asChild,
   variant,
   disabled,
+  icon,
   className,
   children,
   ...props
@@ -30,7 +31,7 @@ export const Button = ({
 
   return (
     <Comp
-      className={cn(buttonVariants({ variant, disabled }), className)}
+      className={cn(buttonVariants({ variant, disabled, icon }), className)}
       onClick={ripple ? chains(ripple.onClick, props.onClick) : props.onClick}
       {...props}
     >
