@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "build:storybook": "pnpm --filter @nyanpasu/material-design-storybook run build"
+  },
   "keywords": [],
   "license": "MIT",
   "devDependencies": {
