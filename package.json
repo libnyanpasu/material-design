@@ -4,6 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "build:libs": "pnpm --filter @nyanpasu/material-design-libs run build",
+    "build:components": "pnpm --filter @nyanpasu/material-design-components run build",
+    "build:react": "pnpm --filter @nyanpasu/material-design-react run build",
+    "build:package": "pnpm -r --filter \"./packages/**\" run build --workspace-concurrency 1 --sort",
     "build:storybook": "pnpm --filter @nyanpasu/material-design-storybook run build"
   },
   "keywords": [],
