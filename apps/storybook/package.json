@@ -1,0 +1,35 @@
+{
+  "name": "@nyanpasu/material-design-storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006 --no-open",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "@nyanpasu/material-design-react": "workspace:^",
+    "react": "19.0.0-rc-d5bba18b-20241009",
+    "react-dom": "19.0.0-rc-d5bba18b-20241009"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "3.2.2",
+    "@storybook/addon-essentials": "8.4.6",
+    "@storybook/addon-interactions": "8.4.6",
+    "@storybook/addon-onboarding": "8.4.6",
+    "@storybook/addon-themes": "^8.4.6",
+    "@storybook/blocks": "8.4.6",
+    "@storybook/react": "8.4.6",
+    "@storybook/react-vite": "8.4.6",
+    "@storybook/test": "8.4.6",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
+    "autoprefixer": "^10.4.20",
+    "globals": "^15.12.0",
+    "postcss": "^8.4.49",
+    "storybook": "8.4.6",
+    "tailwindcss": "^3.4.15",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.1"
+  }
+}
