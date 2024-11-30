@@ -27,7 +27,7 @@ export const Button = ({
 }: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
 
-  const ripple = !disabled ? useRipple() : null;
+  const ripple = disabled || asChild ? null : useRipple();
 
   return (
     <Comp
@@ -35,12 +35,18 @@ export const Button = ({
       onClick={ripple ? chains(ripple.onClick, props.onClick) : props.onClick}
       {...props}
     >
-      {children}
+      {asChild ? (
+        children
+      ) : (
+        <>
+          {children}
 
-      {ripple && (
-        <React.Suspense>
-          <Ripple ripples={ripple.ripples} onClear={ripple.onClear} />
-        </React.Suspense>
+          {ripple && (
+            <React.Suspense>
+              <Ripple ripples={ripple.ripples} onClear={ripple.onClear} />
+            </React.Suspense>
+          )}
+        </>
       )}
     </Comp>
   );
