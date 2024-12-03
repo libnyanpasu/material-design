@@ -6,6 +6,13 @@ import dts from "rollup-plugin-dts";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 
+const addUseClient = () => ({
+  name: "add-use-client",
+  renderChunk(code) {
+    return `'use client';\n${code}`;
+  },
+});
+
 const globals = { react: "React" };
 
 export default defineConfig([
@@ -14,6 +21,7 @@ export default defineConfig([
     output: {
       dir: "dist/cjs",
       format: "cjs",
+      exports: "named",
       sourcemap: true,
       globals,
       preserveModules: true,
@@ -23,6 +31,8 @@ export default defineConfig([
       external(),
       nodeResolve(),
       commonjs(),
+      postcss(),
+      addUseClient(),
       typescript({
         tsconfig: "./tsconfig.json",
         compilerOptions: {
@@ -30,7 +40,6 @@ export default defineConfig([
           declarationDir: "dist/cjs",
         },
       }),
-      postcss(),
     ],
   },
   {
@@ -38,6 +47,7 @@ export default defineConfig([
     output: {
       dir: "dist/esm",
       format: "esm",
+      exports: "named",
       sourcemap: true,
       globals,
       preserveModules: true,
@@ -47,6 +57,8 @@ export default defineConfig([
       external(),
       nodeResolve(),
       commonjs(),
+      postcss(),
+      addUseClient(),
       typescript({
         tsconfig: "./tsconfig.json",
         compilerOptions: {
@@ -54,7 +66,6 @@ export default defineConfig([
           declarationDir: "dist/esm",
         },
       }),
-      postcss(),
     ],
   },
   {
