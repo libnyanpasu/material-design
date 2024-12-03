@@ -13,6 +13,7 @@
   "dependencies": {
     "@nyanpasu/material-design-components": "workspace:^",
     "@nyanpasu/material-design-libs": "workspace:^",
+    "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "ahooks": "^3.8.1",
     "framer-motion": "12.0.0-alpha.2",
