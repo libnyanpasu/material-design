@@ -24,7 +24,12 @@ export const buttonVariants = tcva(
           "border-2/3 border-zinc-500",
           "hover:bg-primary-container",
         ],
-        flat: ["px-6", "text-white", "bg-primary", "hover:bg-opacity-95"],
+        flat: [
+          "px-6",
+          "text-white",
+          "bg-primary bg-opacity-100",
+          "hover:bg-opacity-95",
+        ],
         fab: [
           "px-4 h-14",
           "rounded-2xl",
