@@ -151,6 +151,9 @@ importers:
       '@nyanpasu/material-design-react':
         specifier: workspace:^
         version: link:../../packages/react
+      '@nyanpasu/material-design-tailwind':
+        specifier: workspace:^
+        version: link:../../packages/tailwind
       react:
         specifier: 19.0.0-rc-d5bba18b-20241009
         version: 19.0.0-rc-d5bba18b-20241009
