@@ -1,9 +1,14 @@
 {
-  "name": "@nyanpasu/tailwind",
+  "name": "@nyanpasu/material-design-tailwind",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   }
 }
