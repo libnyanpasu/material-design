@@ -259,7 +259,7 @@ importers:
         version: 1.1.0(react@19.0.0-rc-d5bba18b-20241009)(types-react@19.0.0-rc.1)
       ahooks:
         specifier: ^3.8.1
-        version: 3.8.1(react@19.0.0-rc-d5bba18b-20241009)
+        version: 3.8.2(react@19.0.0-rc-d5bba18b-20241009)
       framer-motion:
         specifier: 12.0.0-alpha.2
         version: 12.0.0-alpha.2(react-dom@19.0.0-rc-d5bba18b-20241009(react@19.0.0-rc-d5bba18b-20241009))(react@19.0.0-rc-d5bba18b-20241009)
@@ -1086,8 +1086,8 @@ packages:
   '@radix-ui/react-portal@1.1.2':
     resolution: {integrity: sha512-WeDYLGPxJb/5EGBoedyJbT0MpoULmwnIPMJMSldkuiMsBAv7N1cRdsTWZWht9vpPOiN3qyiGAtbK2is47/uMFg==}
     peerDependencies:
-      '@types/react': npm:types-react@rc
-      '@types/react-dom': npm:types-react-dom@rc
+      '@types/react': '*'
+      '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
       react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
     peerDependenciesMeta:
@@ -1730,8 +1730,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  ahooks@3.8.1:
-    resolution: {integrity: sha512-JoP9+/RWO7MnI/uSKdvQ8WB10Y3oo1PjLv+4Sv4Vpm19Z86VUMdXh+RhWvMGxZZs06sq2p0xVtFk8Oh5ZObsoA==}
+  ahooks@3.8.2:
+    resolution: {integrity: sha512-iuYD3PWopdw9HqH++3ul6/Oxl9Q9/tP+np4yiYd0mIzN3QfDKnyII28MWUcmSkaHF415R6bUcrl0vD/80NNogg==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5555,7 +5555,7 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  ahooks@3.8.1(react@19.0.0-rc-d5bba18b-20241009):
+  ahooks@3.8.2(react@19.0.0-rc-d5bba18b-20241009):
     dependencies:
       '@babel/runtime': 7.26.0
       dayjs: 1.11.13
