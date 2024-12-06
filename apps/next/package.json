@@ -11,10 +11,10 @@
   "dependencies": {
     "@nyanpasu/material-design-libs": "workspace:^",
     "@nyanpasu/material-design-react": "workspace:^",
-    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240830",
+    "babel-plugin-react-compiler": "0.0.0-experimental-fe484b5-20240912",
     "next": "15.0.4",
-    "react": "19.0.0-rc-d5bba18b-20241009",
-    "react-dom": "19.0.0-rc-d5bba18b-20241009"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@types/react": "npm:types-react@rc",
