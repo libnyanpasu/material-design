@@ -36,24 +36,24 @@ export const Button = ({
   const allowClick = !disabled && !loading;
 
   return (
-    <AnimatePresence initial={false}>
-      <Comp
-        className={cn(buttonVariants({ variant, disabled, icon }), className)}
-        onClick={
-          allowClick
-            ? ripple
-              ? chains(ripple.onClick, props.onClick)
-              : props.onClick
-            : undefined
-        }
-        {...props}
-      >
-        {asChild ? (
-          children
-        ) : (
-          <>
-            {children}
+    <Comp
+      className={cn(buttonVariants({ variant, disabled, icon }), className)}
+      onClick={
+        allowClick
+          ? ripple
+            ? chains(ripple.onClick, props.onClick)
+            : props.onClick
+          : undefined
+      }
+      {...props}
+    >
+      {asChild ? (
+        children
+      ) : (
+        <>
+          {children}
 
+          <AnimatePresence initial={false}>
             {loading && (
               <motion.span
                 className="absolute inset-0 flex h-full w-full cursor-wait items-center justify-center bg-primary-container"
@@ -64,16 +64,16 @@ export const Button = ({
                 <CircularProgress className="size-6" indeterminate />
               </motion.span>
             )}
+          </AnimatePresence>
 
-            {ripple && (
-              <React.Suspense>
-                <Ripple ripples={ripple.ripples} onClear={ripple.onClear} />
-              </React.Suspense>
-            )}
-          </>
-        )}
-      </Comp>
-    </AnimatePresence>
+          {ripple && (
+            <React.Suspense>
+              <Ripple ripples={ripple.ripples} onClear={ripple.onClear} />
+            </React.Suspense>
+          )}
+        </>
+      )}
+    </Comp>
   );
 };
 
