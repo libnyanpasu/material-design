@@ -10,8 +10,8 @@
   "dependencies": {
     "@nyanpasu/material-design-react": "workspace:^",
     "@nyanpasu/material-design-tailwind": "workspace:^",
-    "react": "19.0.0-rc-d5bba18b-20241009",
-    "react-dom": "19.0.0-rc-d5bba18b-20241009"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.2",
