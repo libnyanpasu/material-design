@@ -45,7 +45,7 @@ export const buttonVariants = tcva(
         false: "",
       },
       icon: {
-        true: "p-0",
+        true: "p-0 grid place-content-center",
         false: "min-w-16",
       },
     },
