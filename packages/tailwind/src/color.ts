@@ -17,6 +17,20 @@ export const color = ({ addUtilities }: PluginAPI) => {
       color: `rgba(var(--md-dark-${color}-rgb), var(--tw-text-opacity, 1))`,
     };
 
+    acc[`.stroke-${color}`] = {
+      stroke: `rgba(var(--md-light-${color}-rgb), var(--tw-stroke-opacity, 1))`,
+    };
+    acc[`.dark .stroke-${color}`] = {
+      stroke: `rgba(var(--md-dark-${color}-rgb), var(--tw-stroke-opacity, 1))`,
+    };
+
+    acc[`.fill-${color}`] = {
+      fill: `rgba(var(--md-light-${color}-rgb), var(--tw-fill-opacity, 1))`,
+    };
+    acc[`.dark .fill-${color}`] = {
+      fill: `rgba(var(--md-dark-${color}-rgb), var(--tw-fill-opacity, 1))`,
+    };
+
     return acc;
   }, {});
 
