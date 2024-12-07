@@ -31,6 +31,13 @@ export const color = ({ addUtilities }: PluginAPI) => {
       fill: `rgba(var(--md-dark-${color}-rgb), var(--tw-fill-opacity, 1))`,
     };
 
+    acc[`.border-${color}`] = {
+      "border-color": `rgba(var(--md-light-${color}-rgb), var(--tw-border-opacity, 1))`,
+    };
+    acc[`.dark .border-${color}`] = {
+      "border-color": `rgba(var(--md-dark-${color}-rgb), var(--tw-border-opacity, 1))`,
+    };
+
     return acc;
   }, {});
 
