@@ -10,6 +10,12 @@ export default plugin(
   {
     theme: {
       extend: {
+        height: {
+          "full-2": "200%",
+        },
+        width: {
+          "full-2": "200%",
+        },
         boxShadow: {
           container:
             "0px 2px 1px -1px rgba(0, 0, 0, .2)," +
