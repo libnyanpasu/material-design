@@ -32,6 +32,36 @@ export default plugin(
           "1/3": `${1 / 3}px`,
           "2/3": `${2 / 3}px`,
         },
+        keyframes: {
+          "progress-spin": {
+            "12.5%": { transform: "rotate(135deg)" },
+            "25%": { transform: "rotate(270deg)" },
+            "37.5%": { transform: "rotate(405deg)" },
+            "50%": { transform: "rotate(540deg)" },
+            "62.5%": { transform: "rotate(675deg)" },
+            "75%": { transform: "rotate(810deg)" },
+            "87.5%": { transform: "rotate(945deg)" },
+            "100%": { transform: "rotate(1080deg)" },
+          },
+          "progress-spin-left": {
+            "0%": { transform: "rotate(265deg)" },
+            "50%": { transform: "rotate(130deg)" },
+            "100%": { transform: "rotate(265deg)" },
+          },
+          "progress-spin-right": {
+            "0%": { transform: "rotate(-265deg)" },
+            "50%": { transform: "rotate(-130deg)" },
+            "100%": { transform: "rotate(-265deg)" },
+          },
+        },
+        animation: {
+          "progress-spin":
+            "progress-spin 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;",
+          "progress-spin-left":
+            "progress-spin-left 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;",
+          "progress-spin-right":
+            "progress-spin-right 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;",
+        },
       },
     },
   },
