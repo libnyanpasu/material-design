@@ -5,11 +5,27 @@ import { defineConfig } from "rollup";
 import dts from "rollup-plugin-dts";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import { SourceMapConsumer, SourceMapGenerator } from "source-map";
 
 const addUseClient = () => ({
   name: "add-use-client",
-  renderChunk(code) {
-    return `'use client';\n${code}`;
+  renderChunk(code, chunk, options) {
+    const newCode = `'use client';\n${code}`;
+    const offset = newCode.split("\n").length - code.split("\n").length;
+
+    if (options.sourcemap && chunk.map) {
+      const consumer = new SourceMapConsumer(chunk.map);
+      const generator = SourceMapGenerator.fromSourceMap(consumer);
+      generator.addMapping({
+        source: chunk.fileName,
+        original: { line: 1, column: 0 },
+        generated: { line: offset, column: 0 },
+      });
+      const newMap = generator.toJSON();
+      return { code: newCode, map: newMap };
+    }
+
+    return { code: newCode, map: null };
   },
 });
 
