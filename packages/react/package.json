@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@storybook/react": "8.4.7",
-    "@types/react": "npm:types-react@rc",
-    "@types/react-dom": "npm:types-react-dom@rc"
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1"
   },
   "peerDependencies": {
     "framer-motion": "^12.0.0-alpha.2",
