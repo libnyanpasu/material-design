@@ -1,10 +1,12 @@
 import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
+import {
+  selectLabelVariants,
+  selectLineVariants,
+  selectTriggerVariants,
+} from "../select";
 
 export const inputContainerVariants = tcva(
-  [
-    "relative box-border inline-flex w-full flex-auto items-baseline overflow-hidden",
-    "rounded-t px-4 bg-surface-variant",
-  ],
+  [selectTriggerVariants.base, "py-0"],
   {
     variants: {
       haveLabel: {
@@ -30,8 +32,7 @@ export type InputVariants = VariantProps<typeof inputVariants>;
 
 export const inputLabelVariants = tcva(
   [
-    "absolute inset-x-4 top-4",
-    "pointer-events-none text-base text-opacity-70 transition-all duration-200 text-on-primary-container",
+    selectLabelVariants.base,
     "peer-focus:top-2 peer-focus:text-xs peer-focus:text-opacity-100 peer-focus:text-primary",
   ],
   {
@@ -50,8 +51,9 @@ export const inputLabelVariants = tcva(
 export type InputLabelVariants = VariantProps<typeof inputLabelVariants>;
 
 export const inputLineVariants = tcva([
-  "absolute inset-x-0 bottom-0 w-full border-b border-on-primary-container",
-  "transition-all duration-200 peer-focus:border-b-0",
-  "after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:scale-x-0 after:border-b-2 after:opacity-0 after:content-['']",
-  "after:transition-all after:duration-200 after:border-primary after:peer-focus:scale-x-100 after:peer-focus:opacity-100",
+  selectLineVariants.base,
+  "peer-focus:border-b-0",
+  "after:peer-focus:scale-x-100 after:peer-focus:opacity-100",
 ]);
+
+export type InputLineVariants = VariantProps<typeof inputLineVariants>;

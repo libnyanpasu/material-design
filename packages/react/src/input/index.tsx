@@ -10,7 +10,7 @@ import { useCreation } from "ahooks";
 import React from "react";
 import { chains } from "../utils/chian";
 
-const InputContext = React.createContext<{
+export const InputContext = React.createContext<{
   haveLabel?: boolean;
   haveValue?: boolean;
 }>({});
