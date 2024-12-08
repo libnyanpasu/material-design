@@ -9,7 +9,7 @@ export const inputContainerVariants = tcva(
     variants: {
       haveLabel: {
         true: "pb-2 pt-6",
-        false: "px-2",
+        false: "py-4",
       },
     },
     defaultVariants: {

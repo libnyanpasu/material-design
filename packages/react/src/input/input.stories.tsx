@@ -12,3 +12,7 @@ export default {
 export const Default: Story = {
   render: () => <Input type="email" placeholder="Email" label="Email" />,
 };
+
+export const WithoutLabel: Story = {
+  render: () => <Input type="text" />,
+};
