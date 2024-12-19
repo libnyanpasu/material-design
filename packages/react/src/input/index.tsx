@@ -62,7 +62,9 @@ export const Input = ({
     return false;
   }, []);
 
-  const [haveValue, setHaveValue] = React.useState(false);
+  const [haveValue, setHaveValue] = React.useState(
+    Boolean(props.value || props.defaultValue),
+  );
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHaveValue(Boolean(e.target.value));

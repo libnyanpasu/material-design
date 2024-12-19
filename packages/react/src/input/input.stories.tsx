@@ -16,3 +16,11 @@ export const Default: Story = {
 export const WithoutLabel: Story = {
   render: () => <Input type="text" />,
 };
+
+export const WithValue: Story = {
+  render: () => <Input type="text" label="Email" value="test" />,
+};
+
+export const WithDefaultValue: Story = {
+  render: () => <Input type="text" label="Email" defaultValue="test" />,
+};
