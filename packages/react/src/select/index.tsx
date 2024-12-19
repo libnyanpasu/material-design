@@ -49,7 +49,9 @@ export const Select = ({
     defaultValue: props.defaultOpen,
   });
 
-  const [haveValue, setHaveValue] = React.useState(Boolean(props.value));
+  const [haveValue, setHaveValue] = React.useState(
+    Boolean(props.value || props.defaultValue),
+  );
 
   const handleOnChange = React.useCallback(
     (value?: string) => {
