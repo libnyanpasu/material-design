@@ -1,4 +1,5 @@
 import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
+import { dropdownMenuLabelVariants } from "../dropdown-menu";
 
 export const selectTriggerVariants = tcva([
   "relative box-border inline-flex w-full flex-auto items-baseline overflow-hidden",
@@ -66,7 +67,8 @@ export const selectContentVariants = tcva([
 export type SelectContentVariants = VariantProps<typeof selectContentVariants>;
 
 export const selectItemVariants = tcva([
-  "flex h-12 cursor-pointer items-center justify-between p-4 outline-none gap-2",
+  dropdownMenuLabelVariants.base,
+  "cursor-pointer",
   "hover:bg-surface-variant data-[state=checked]:bg-primary-container",
 ]);
 
