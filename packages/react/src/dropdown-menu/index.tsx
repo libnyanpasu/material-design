@@ -49,13 +49,29 @@ export const DropdownMenu = (
   );
 };
 
-export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+export const DropdownMenuTrigger = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>,
+) => {
+  return <DropdownMenuPrimitive.Trigger {...props} />;
+};
 
-export const DropdownMenuGroup = DropdownMenuPrimitive.Group;
+export const DropdownMenuGroup = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.Group>,
+) => {
+  return <DropdownMenuPrimitive.Group {...props} />;
+};
 
-export const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
+export const DropdownMenuPortal = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>,
+) => {
+  return <DropdownMenuPrimitive.Portal {...props} />;
+};
 
-export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
+export const DropdownMenuSub = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>,
+) => {
+  return <DropdownMenuPrimitive.Sub {...props} />;
+};
 
 const DropdownMenuRadioGroupContext = React.createContext<{
   value: string | null;
@@ -92,9 +108,17 @@ export const DropdownMenuRadioGroup = (
   );
 };
 
-export const DropdownMenuSubTrigger = DropdownMenuPrimitive.SubTrigger;
+export const DropdownMenuSubTrigger = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger>,
+) => {
+  return <DropdownMenuPrimitive.SubTrigger {...props} />;
+};
 
-export const DropdownMenuSubContent = DropdownMenuPrimitive.SubContent;
+export const DropdownMenuSubContent = (
+  props: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>,
+) => {
+  return <DropdownMenuPrimitive.SubContent {...props} />;
+};
 
 export const DropdownMenuContent = ({
   children,
