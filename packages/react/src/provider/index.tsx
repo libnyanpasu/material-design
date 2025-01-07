@@ -6,10 +6,5 @@ export interface MDProviderProps {
 }
 
 export const MDProvider: React.FC<MDProviderProps> = ({ children }) => {
-  return (
-    <>
-      <ClientRender />
-      {children}
-    </>
-  );
+  return <ClientRender>{children}</ClientRender>;
 };

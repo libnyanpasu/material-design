@@ -145,7 +145,7 @@ export const SelectContent = ({
 
   return (
     <AnimatePresence initial={false}>
-      {open && (
+      {open === true && (
         <SelectPrimitive.Portal>
           <SelectPrimitive.Content {...props} position="popper" asChild>
             <motion.div
