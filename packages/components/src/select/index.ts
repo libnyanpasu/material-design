@@ -66,7 +66,7 @@ export const selectContentVariants = tcva([
 export type SelectContentVariants = VariantProps<typeof selectContentVariants>;
 
 export const selectItemVariants = tcva([
-  "flex h-12 cursor-pointer items-center justify-between p-4 outline-none",
+  "flex h-12 cursor-pointer items-center justify-between p-4 outline-none gap-2",
   "hover:bg-surface-variant data-[state=checked]:bg-primary-container",
 ]);
 
