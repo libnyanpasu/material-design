@@ -9,6 +9,7 @@ import {
   type CardVariantsProps,
 } from "@nyanpasu/material-design-components";
 import { cn } from "@nyanpasu/material-design-libs";
+import { Slot } from "@radix-ui/react-slot";
 import React from "react";
 
 type CardContextType = {
@@ -22,12 +23,22 @@ const CardContext = React.createContext<CardContextType | null>(null);
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CardVariantsProps,
-    Partial<CardContextType> {}
+    Partial<CardContextType> {
+  asChild?: boolean;
+}
 
-export const Card = ({ variant, divider, className, ...props }: CardProps) => {
+export const Card = ({
+  variant,
+  divider,
+  asChild,
+  className,
+  ...props
+}: CardProps) => {
+  const Comp = asChild ? Slot : "div";
+
   return (
     <CardContext.Provider value={{ variant, divider }}>
-      <div className={cn(cardVariants({ variant }), className)} {...props} />
+      <Comp className={cn(cardVariants({ variant }), className)} {...props} />
     </CardContext.Provider>
   );
 };
@@ -36,16 +47,15 @@ export interface CardContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     CardContentVariantsProps {}
 
-export const CardContent = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => {
+export const CardContent = ({ className, ...props }: CardContentProps) => {
   return <div className={cn(cardContentVariants(), className)} {...props} />;
 };
 
 export interface CardHeaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    CardHeaderVariantsProps {}
+    CardHeaderVariantsProps {
+  asChild?: boolean;
+}
 
 export const CardHeader = ({
   divider,
