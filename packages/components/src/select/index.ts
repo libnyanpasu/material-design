@@ -61,7 +61,7 @@ export const selectIconVariants = tcva(["absolute right-4"]);
 export type SelectIconVariants = VariantProps<typeof selectIconVariants>;
 
 export const selectContentVariants = tcva([
-  "relative w-full overflow-hidden rounded-b shadow-container bg-inverse-on-surface",
+  "relative w-full overflow-hidden rounded-b shadow-container bg-inverse-on-surface z-50",
 ]);
 
 export type SelectContentVariants = VariantProps<typeof selectContentVariants>;
