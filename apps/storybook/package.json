@@ -14,7 +14,7 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "3.2.3",
+    "@chromatic-com/storybook": "3.2.4",
     "@storybook/addon-essentials": "8.4.7",
     "@storybook/addon-interactions": "8.4.7",
     "@storybook/addon-onboarding": "8.4.7",
