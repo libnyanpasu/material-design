@@ -56,7 +56,10 @@ export const Button = ({
           <AnimatePresence initial={false}>
             {loading && (
               <motion.span
-                className="absolute inset-0 flex h-full w-full cursor-wait items-center justify-center bg-primary-container"
+                className={cn(
+                  "absolute inset-0 flex h-full w-full cursor-wait items-center justify-center",
+                  "bg-inherit-allow-fallback",
+                )}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

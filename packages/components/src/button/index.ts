@@ -12,33 +12,40 @@ export const buttonVariants = tcva(
   {
     variants: {
       variant: {
-        basic: ["px-4", "text-primary", "hover:bg-primary-container"],
+        basic: [
+          "px-4",
+          "text-primary dark:text-on-primary",
+          "bg-transparent-fallback-surface dark:bg-transparent-fallback-on-surface",
+          "hover:bg-primary-container dark:hover:bg-on-primary-container",
+        ],
         raised: [
           "px-6",
-          "text-primary",
+          "text-primary dark:text-on-primary",
           "shadow-container hover:shadow-container-lg focus:shadow-container",
-          "hover:bg-primary-container",
+          "bg-surface dark:bg-on-surface",
+          "hover:bg-surface-variant dark:hover:bg-on-surface-variant",
         ],
         stroked: [
           "px-6",
-          "text-primary",
-          "border-2/3 border-zinc-500",
-          "hover:bg-primary-container",
+          "text-primary dark:text-on-primary",
+          "border-2/3 border-primary-container dark:hover:border-on-primary-container",
+          "bg-transparent-fallback-surface dark:bg-transparent-fallback-on-surface",
+          "hover:bg-primary-container dark:hover:bg-on-primary-container",
         ],
         flat: [
           "px-6",
           "text-white",
-          "bg-primary bg-opacity-100",
+          "bg-primary bg-opacity-100 dark:bg-on-primary-container",
           "hover:bg-opacity-95",
         ],
         fab: [
           "px-4 h-14",
           "rounded-2xl",
           "shadow-container-xl",
-          "bg-primary-container",
-          "text-on-primary-container",
+          "bg-primary-container dark:bg-on-primary-container",
+          "text-on-primary-container dark:text-primary-container",
           "hover:shadow-container-2xl",
-          "hover:brightness-95",
+          "hover:brightness-95 dark:hover:brightness-105",
         ],
       },
       disabled: {
