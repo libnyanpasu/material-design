@@ -38,8 +38,26 @@ export const color = ({ addUtilities }: PluginAPI) => {
       "border-color": `rgba(var(--md-dark-${color}-rgb), var(--tw-border-opacity, 1))`,
     };
 
+    acc[`.bg-transparent-fallback-${color}`] = {
+      "background-color": "transparent",
+      "--fallback-bg": `rgba(var(--md-light-${color}-rgb), var(--tw-bg-opacity, 1))`,
+    };
+    acc[`.dark .bg-transparent-fallback-${color}`] = {
+      "background-color": "transparent",
+      "--fallback-bg": `rgba(var(--md-dark-${color}-rgb), var(--tw-bg-opacity, 1))`,
+    };
+
     return acc;
   }, {});
 
-  addUtilities(mdColors);
+  const fallbackUtility = {
+    ".bg-inherit-allow-fallback": {
+      "background-color": "var(--fallback-bg, inherit)",
+    },
+  };
+
+  addUtilities({
+    ...mdColors,
+    ...fallbackUtility,
+  });
 };
