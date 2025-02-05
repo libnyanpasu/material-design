@@ -23,11 +23,24 @@ export const decorators: Decorator[] = [
     },
     defaultTheme: "light",
   }),
-  (Story) => (
-    <MDProvider>
-      <Story />
-    </MDProvider>
-  ),
+  (Story, context) => {
+    const currentTheme = context.globals.theme || "light";
+    const background = currentTheme === "dark" ? "#333" : "#fff";
+
+    React.useEffect(() => {
+      const originalBackground = document.body.style.backgroundColor;
+      document.body.style.backgroundColor = background;
+      return () => {
+        document.body.style.backgroundColor = originalBackground;
+      };
+    }, [background]);
+
+    return (
+      <MDProvider>
+        <Story />
+      </MDProvider>
+    );
+  },
 ];
 
 export default preview;
