@@ -1,11 +1,14 @@
 import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
 
-export const cardVariants = tcva(["rounded-3xl"], {
+export const cardVariants = tcva(["rounded-3xl", "dark:text-surface"], {
   variants: {
     variant: {
-      basic: ["shadow bg-surface"],
+      basic: ["shadow bg-surface dark:bg-on-surface"],
       raised: ["shadow bg-primary bg-opacity-10"],
-      stroked: ["border bg-surface"],
+      stroked: [
+        "border border-surface-variant dark:border-on-surface-variant",
+        "bg-surface dark:bg-on-surface",
+      ],
     },
   },
   defaultVariants: {
@@ -25,7 +28,9 @@ export const cardHeaderVariants = tcva(
   {
     variants: {
       divider: {
-        true: ["border-b py-4"],
+        true: [
+          "border-b border-surface-variant dark:border-on-surface-variant py-4",
+        ],
         false: ["pt-4"],
       },
     },
@@ -43,7 +48,9 @@ export const cardFooterVariants = tcva(
   {
     variants: {
       divider: {
-        true: ["border-t py-2"],
+        true: [
+          "border-t border-surface-variant dark:border-on-surface-variant py-2",
+        ],
         false: ["pb-2"],
       },
     },
