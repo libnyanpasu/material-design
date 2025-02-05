@@ -28,7 +28,7 @@ export const Circle = ({
 
   return (
     <circle
-      className={cn("stroke-primary stroke-1/10 fill-transparent", className)}
+      className={cn("stroke-current stroke-1/10 fill-transparent", className)}
       cx="50%"
       cy="50%"
       r="45"
@@ -49,7 +49,7 @@ export const CircleSVG = ({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("stroke-primary absolute h-full w-full", className)}
+      className={cn("stroke-current absolute h-full w-full", className)}
       focusable="false"
       viewBox={`0 0 ${BASE_SIZE} ${BASE_SIZE}`}
       {...props}
