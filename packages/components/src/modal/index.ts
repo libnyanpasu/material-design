@@ -3,7 +3,7 @@ import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
 export const modalOverlayVariants = tcva([
   "fixed inset-0 z-50",
   "backdrop-blur-xl",
-  "bg-opacity-10 bg-primary",
+  "bg-primary/10",
 ]);
 
 export type ModalOverlayVariantsProps = VariantProps<

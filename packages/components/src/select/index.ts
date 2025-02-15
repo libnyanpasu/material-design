@@ -3,7 +3,7 @@ import { dropdownMenuLabelVariants } from "../dropdown-menu";
 
 export const selectTriggerVariants = tcva([
   "relative box-border inline-flex w-full flex-auto items-baseline overflow-hidden",
-  "rounded-t px-4 bg-surface-variant py-4 outline-none",
+  "rounded-t px-4 bg-surface-variant py-4 outline-hidden",
   "flex items-center justify-between h-14",
 ]);
 
@@ -34,7 +34,7 @@ export type SelectLineVariants = VariantProps<typeof selectLineVariants>;
 export const selectLabelVariants = tcva(
   [
     "absolute left-4 top-4",
-    "pointer-events-none text-base text-opacity-70 transition-all duration-200 text-on-primary-container",
+    "pointer-events-none text-base transition-all duration-200 text-on-primary-container/70",
   ],
   {
     variants: {
@@ -43,7 +43,7 @@ export const selectLabelVariants = tcva(
         false: "",
       },
       focus: {
-        true: "top-2 text-xs text-opacity-100 text-primary",
+        true: "top-2 text-xs text-primary",
         false: "",
       },
     },

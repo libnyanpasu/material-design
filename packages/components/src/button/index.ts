@@ -7,7 +7,7 @@ export const buttonVariants = tcva(
     "rounded-full",
     "cursor-pointer select-none",
     "relative overflow-hidden",
-    "focus:outline-none",
+    "focus:outline-hidden",
   ],
   {
     variants: {
@@ -35,8 +35,8 @@ export const buttonVariants = tcva(
         flat: [
           "px-6",
           "text-white",
-          "bg-primary bg-opacity-100 dark:bg-on-primary-container",
-          "hover:bg-opacity-95",
+          "bg-primary dark:bg-on-primary-container",
+          "hover:bg-primary/95",
         ],
         fab: [
           "px-4 h-14",
@@ -76,7 +76,7 @@ export const buttonVariants = tcva(
       {
         variant: "flat",
         disabled: true,
-        className: "bg-gray-900/20 text-gray-900/40 hover:bg-opacity-100",
+        className: "bg-gray-900/20 text-gray-900/40 hover:bg-primary",
       },
       {
         variant: "fab",

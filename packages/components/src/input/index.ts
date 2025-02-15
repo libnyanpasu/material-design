@@ -25,7 +25,7 @@ export type InputContainerVariants = VariantProps<
 >;
 
 export const inputVariants = tcva([
-  "peer w-full border-none bg-transparent p-0 placeholder-transparent outline-none",
+  "peer w-full border-none bg-transparent p-0 placeholder-transparent outline-hidden",
 ]);
 
 export type InputVariants = VariantProps<typeof inputVariants>;
@@ -33,7 +33,7 @@ export type InputVariants = VariantProps<typeof inputVariants>;
 export const inputLabelVariants = tcva(
   [
     selectLabelVariants.base,
-    "peer-focus:top-2 peer-focus:text-xs peer-focus:text-opacity-100 peer-focus:text-primary",
+    "peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary",
   ],
   {
     variants: {
