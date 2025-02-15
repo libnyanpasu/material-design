@@ -8,7 +8,7 @@ export type DropdownMenuLabelVariants = VariantProps<
   typeof dropdownMenuLabelVariants
 >;
 
-export const dropdownMenuSeparatorVariants = tcva(["h-px bg-on-surface bg-opacity-30"]);
+export const dropdownMenuSeparatorVariants = tcva(["h-px bg-on-surface/30"]);
 
 export type DropdownMenuSeparatorVariants = VariantProps<
   typeof dropdownMenuSeparatorVariants

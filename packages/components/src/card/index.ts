@@ -4,7 +4,7 @@ export const cardVariants = tcva(["rounded-3xl", "dark:text-surface"], {
   variants: {
     variant: {
       basic: ["shadow bg-surface dark:bg-on-surface"],
-      raised: ["shadow bg-primary bg-opacity-10"],
+      raised: ["shadow bg-primary/10"],
       stroked: [
         "border border-surface-variant dark:border-on-surface-variant",
         "bg-surface dark:bg-on-surface",

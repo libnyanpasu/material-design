@@ -1,117 +1,134 @@
 import createPlugin from "tailwindcss/plugin";
 
 const colorScheme = [
-	"primary",
-	"on-primary",
-	"primary-container",
-	"on-primary-container",
-	"secondary",
-	"on-secondary",
-	"secondary-container",
-	"on-secondary-container",
-	"tertiary",
-	"on-tertiary",
-	"tertiary-container",
-	"on-tertiary-container",
-	"error",
-	"on-error",
-	"error-container",
-	"on-error-container",
-	"background",
-	"on-background",
-	"surface",
-	"on-surface",
-	"surface-variant",
-	"on-surface-variant",
-	"outline",
-	"outline-variant",
-	"shadow",
-	"scrim",
-	"inverse-surface",
-	"inverse-on-surface",
-	"inverse-primary",
+  "primary",
+  "on-primary",
+  "primary-container",
+  "on-primary-container",
+  "secondary",
+  "on-secondary",
+  "secondary-container",
+  "on-secondary-container",
+  "tertiary",
+  "on-tertiary",
+  "tertiary-container",
+  "on-tertiary-container",
+  "error",
+  "on-error",
+  "error-container",
+  "on-error-container",
+  "background",
+  "on-background",
+  "surface",
+  "on-surface",
+  "surface-variant",
+  "on-surface-variant",
+  "outline",
+  "outline-variant",
+  "shadow",
+  "scrim",
+  "inverse-surface",
+  "inverse-on-surface",
+  "inverse-primary",
 ];
 
+const opacitys = [0, 5, 10, 15, 20, 25, 30, 50, 60, 75, 80, 85, 90, 95, 100];
+
 const color = ({ addUtilities }) => {
-	const mdColors = colorScheme.reduce((acc, color) => {
-		acc[`.bg-${color}`] = {
-			"background-color": `rgba(var(--md-light-${color}-rgb), var(--tw-bg-opacity, 1))`,
-		};
-		acc[`.dark .bg-${color}`] = {
-			"background-color": `rgba(var(--md-dark-${color}-rgb), var(--tw-bg-opacity, 1))`,
-		};
+  const mdColors = colorScheme.reduce((acc, color) => {
+    acc[`.bg-${color}`] = {
+      "background-color": `rgb(var(--md-light-${color}-rgb))`,
+    };
+    acc[`.dark .bg-${color}`] = {
+      "background-color": `rgb(var(--md-dark-${color}-rgb))`,
+    };
 
-		acc[`.text-${color}`] = {
-			color: `rgba(var(--md-light-${color}-rgb), var(--tw-text-opacity, 1))`,
-		};
-		acc[`.dark .text-${color}`] = {
-			color: `rgba(var(--md-dark-${color}-rgb), var(--tw-text-opacity, 1))`,
-		};
+    opacitys.forEach((opacity) => {
+      acc[`.bg-${color}/${opacity}`] = {
+        "background-color": `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+      };
+      acc[`.dark .bg-${color}/${opacity}`] = {
+        "background-color": `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+      };
+    });
 
-		acc[`.stroke-${color}`] = {
-			stroke: `rgba(var(--md-light-${color}-rgb), var(--tw-stroke-opacity, 1))`,
-		};
-		acc[`.dark .stroke-${color}`] = {
-			stroke: `rgba(var(--md-dark-${color}-rgb), var(--tw-stroke-opacity, 1))`,
-		};
+    acc[`.text-${color}`] = {
+      color: `rgb(var(--md-light-${color}-rgb))`,
+    };
+    acc[`.dark .text-${color}`] = {
+      color: `rgb(var(--md-dark-${color}-rgb))`,
+    };
 
-		acc[`.fill-${color}`] = {
-			fill: `rgba(var(--md-light-${color}-rgb), var(--tw-fill-opacity, 1))`,
-		};
-		acc[`.dark .fill-${color}`] = {
-			fill: `rgba(var(--md-dark-${color}-rgb), var(--tw-fill-opacity, 1))`,
-		};
+    opacitys.forEach((opacity) => {
+      acc[`.text-${color}/${opacity}`] = {
+        color: `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+      };
+      acc[`.dark .text-${color}/${opacity}`] = {
+        color: `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+      };
+    });
 
-		acc[`.border-${color}`] = {
-			"border-color": `rgba(var(--md-light-${color}-rgb), var(--tw-border-opacity, 1))`,
-		};
-		acc[`.dark .border-${color}`] = {
-			"border-color": `rgba(var(--md-dark-${color}-rgb), var(--tw-border-opacity, 1))`,
-		};
+    ["stroke", "fill", "border"].forEach((property) => {
+      acc[`.${property}-${color}`] = {
+        [property]: `rgb(var(--md-light-${color}-rgb))`,
+      };
+      acc[`.dark .${property}-${color}`] = {
+        [property]: `rgb(var(--md-dark-${color}-rgb))`,
+      };
 
-		acc[`.bg-transparent-fallback-${color}`] = {
-			"background-color": "transparent",
-			"--fallback-bg": `rgba(var(--md-light-${color}-rgb), var(--tw-bg-opacity, 1))`,
-		};
-		acc[`.dark .bg-transparent-fallback-${color}`] = {
-			"background-color": "transparent",
-			"--fallback-bg": `rgba(var(--md-dark-${color}-rgb), var(--tw-bg-opacity, 1))`,
-		};
+      opacitys.forEach((opacity) => {
+        acc[`.${property}-${color}/${opacity}`] = {
+          [property]: `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+        };
+        acc[`.dark .${property}-${color}/${opacity}`] = {
+          [property]: `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+        };
+      });
+    });
 
-		return acc;
-	}, {});
+    acc[`.bg-transparent-fallback-${color}`] = {
+      "background-color": "transparent",
+      "--fallback-bg": `rgb(var(--md-light-${color}-rgb))`,
+    };
+    acc[`.dark .bg-transparent-fallback-${color}`] = {
+      "background-color": "transparent",
+      "--fallback-bg": `rgb(var(--md-dark-${color}-rgb))`,
+    };
 
-	const fallbackUtility = {
-		".bg-inherit-allow-fallback": {
-			"background-color": "var(--fallback-bg, inherit)",
-		},
-	};
+    return acc;
+  }, {});
 
-	addUtilities({
-		...mdColors,
-		...fallbackUtility,
-	});
+  const fallbackUtility = {
+    ".bg-inherit-allow-fallback": {
+      "background-color": "var(--fallback-bg, inherit)",
+    },
+  };
+
+  addUtilities({
+    ...mdColors,
+    ...fallbackUtility,
+  });
 };
 
 const subtract = ({ addUtilities, theme }) => {
-	const heights = theme("height");
-	const subtractRules = Object.keys(heights).reduce((acc, key) => {
-		const originalValue = heights[key];
-		acc[`.h-dvh-subtract-${key}`] = {
-			height: `calc(100dvh - ${originalValue})`,
-		};
-		return acc;
-	}, {});
-	addUtilities(subtractRules);
+  const heights = theme("height");
+  const subtractRules = Object.keys(heights).reduce((acc, key) => {
+    const originalValue = heights[key];
+    acc[`.h-dvh-subtract-${key}`] = {
+      height: `calc(100dvh - ${originalValue})`,
+    };
+    return acc;
+  }, {});
+  addUtilities(subtractRules);
 };
 
 export default createPlugin(
-	(api) => {
-		color(api);
-		subtract(api);
-	},
-	{
-		theme: {
+  (api) => {
+    color(api);
+    subtract(api);
+  },
+  {
+    theme: {
       extend: {
         height: {
           "full-2": "200%",
@@ -130,19 +147,19 @@ export default createPlugin(
         },
         strokeOpacity: {
           DEFAULT: "1",
-          "0": "0",
-          "25": "0.25",
-          "50": "0.5",
-          "75": "0.75",
-          "100": "1",
+          0: "0",
+          25: "0.25",
+          50: "0.5",
+          75: "0.75",
+          100: "1",
         },
         fillOpacity: {
           DEFAULT: "1",
-          "0": "0",
-          "25": "0.25",
-          "50": "0.5",
-          "75": "0.75",
-          "100": "1",
+          0: "0",
+          25: "0.25",
+          50: "0.5",
+          75: "0.75",
+          100: "1",
         },
         boxShadow: {
           container:
@@ -198,5 +215,5 @@ export default createPlugin(
         },
       },
     },
-	}
+  },
 );
