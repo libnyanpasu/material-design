@@ -3,7 +3,7 @@ import { dropdownMenuLabelVariants } from "../dropdown-menu";
 
 export const selectTriggerVariants = tcva([
   "relative box-border inline-flex w-full flex-auto items-baseline overflow-hidden",
-  "rounded-t px-4 bg-surface-variant py-4 outline-none",
+  "rounded-t px-4 bg-surface-variant py-4 outline-hidden",
   "flex items-center justify-between h-14",
 ]);
 

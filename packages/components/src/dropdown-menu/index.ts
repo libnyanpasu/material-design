@@ -1,7 +1,7 @@
 import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
 
 export const dropdownMenuLabelVariants = tcva([
-  "flex h-12 items-center justify-between p-4 outline-none gap-2 cursor-default",
+  "flex h-12 items-center justify-between p-4 outline-hidden gap-2 cursor-default",
 ]);
 
 export type DropdownMenuLabelVariants = VariantProps<

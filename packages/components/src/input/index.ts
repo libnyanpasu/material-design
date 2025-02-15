@@ -25,7 +25,7 @@ export type InputContainerVariants = VariantProps<
 >;
 
 export const inputVariants = tcva([
-  "peer w-full border-none bg-transparent p-0 placeholder-transparent outline-none",
+  "peer w-full border-none bg-transparent p-0 placeholder-transparent outline-hidden",
 ]);
 
 export type InputVariants = VariantProps<typeof inputVariants>;

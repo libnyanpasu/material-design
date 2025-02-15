@@ -3,8 +3,8 @@ import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
 export const cardVariants = tcva(["rounded-3xl", "dark:text-surface"], {
   variants: {
     variant: {
-      basic: ["shadow bg-surface dark:bg-on-surface"],
-      raised: ["shadow bg-primary/10"],
+      basic: ["shadow-sm bg-surface dark:bg-on-surface"],
+      raised: ["shadow-sm bg-primary/10"],
       stroked: [
         "border border-surface-variant dark:border-on-surface-variant",
         "bg-surface dark:bg-on-surface",

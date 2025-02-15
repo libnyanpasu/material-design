@@ -7,7 +7,7 @@ export const buttonVariants = tcva(
     "rounded-full",
     "cursor-pointer select-none",
     "relative overflow-hidden",
-    "focus:outline-none",
+    "focus:outline-hidden",
   ],
   {
     variants: {
