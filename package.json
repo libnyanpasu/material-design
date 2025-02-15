@@ -53,5 +53,10 @@
   "packageManager": "pnpm@10.4.0",
   "engines": {
     "node": ">=20"
+  },
+  "pnpm": {
+    "overrides": {
+      "material-design-tailwind": "link:..\\..\\..\\..\\..\\AppData\\Local\\pnpm\\global\\5\\node_modules\\@nyanpasu\\material-design-tailwind"
+    }
   }
 }

@@ -7,3 +7,5 @@ dist/
 *.pem
 .env
 *.tsbuildinfo
+.next
+storybook-static/
