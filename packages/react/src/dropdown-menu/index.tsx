@@ -1,7 +1,7 @@
 import {
   dropdownMenuLabelVariants,
   dropdownMenuSeparatorVariants,
-  selectContentVariants,
+  dropdownMenuContentVariants,
   selectItemVariants,
 } from "@nyanpasu/material-design-components";
 import { cn } from "@nyanpasu/material-design-libs";
@@ -133,7 +133,7 @@ export const DropdownMenuContent = ({
         <DropdownMenuPrimitive.Portal forceMount>
           <DropdownMenuPrimitive.Content {...props} asChild>
             <motion.div
-              className={cn(selectContentVariants(), className)}
+              className={cn(dropdownMenuContentVariants(), className)}
               initial={{ opacity: 0, scaleY: 0.9, transformOrigin: "top" }}
               animate={{ opacity: 1, scaleY: 1, transformOrigin: "top" }}
               exit={{ opacity: 0, scaleY: 0.9, transformOrigin: "top" }}

@@ -13,3 +13,11 @@ export const dropdownMenuSeparatorVariants = tcva(["h-px bg-on-surface/30"]);
 export type DropdownMenuSeparatorVariants = VariantProps<
   typeof dropdownMenuSeparatorVariants
 >;
+
+export const dropdownMenuContentVariants = tcva([
+  "relative w-full overflow-hidden rounded shadow-container bg-inverse-on-surface z-50",
+]);
+
+export type DropdownMenuContentVariants = VariantProps<
+  typeof dropdownMenuContentVariants
+>;
