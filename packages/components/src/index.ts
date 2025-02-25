@@ -4,4 +4,5 @@ export * from "./dropdown-menu";
 export * from "./input";
 export * from "./modal";
 export * from "./select";
+export * from "./switch";
 export * from "./table";
