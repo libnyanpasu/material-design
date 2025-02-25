@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Modal, ModalClose, ModalContent, ModalTrigger } from ".";
+import { Modal, ModalClose, ModalContent, ModalTitle, ModalTrigger } from ".";
 import { Button } from "../button";
 import { Card, CardContent, CardFooter, CardHeader } from "../card";
 
@@ -21,7 +21,9 @@ export const Default: Story = {
 
         <ModalContent>
           <Card className="w-96">
-            <CardHeader>Modal</CardHeader>
+            <CardHeader>
+              <ModalTitle>Modal</ModalTitle>
+            </CardHeader>
 
             <CardContent>this is modal content</CardContent>
 

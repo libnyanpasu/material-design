@@ -9,7 +9,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Button, ButtonProps } from "../button";
 
-const ModalPortal = DialogPrimitive.Portal;
+export const ModalPortal = DialogPrimitive.Portal;
+
+export const ModalTitle = DialogPrimitive.Title;
+
+export const ModalDescription = DialogPrimitive.Description;
 
 const ModalContext = React.createContext<{
   open?: boolean;
