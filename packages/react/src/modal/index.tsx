@@ -31,19 +31,22 @@ const useModalContext = () => {
 
   return context;
 };
-
-export const ModalTrigger = (
-  props: React.ComponentProps<typeof DialogPrimitive.Trigger>,
-) => {
+export const ModalTrigger = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Trigger>) => {
   const { layoutId } = useModalContext();
 
-  const Trigger = DialogPrimitive.Trigger as React.FC<
-    React.ComponentProps<typeof DialogPrimitive.Trigger> & {
-      layoutId?: string;
-    }
-  >;
+  const isValidElement = React.isValidElement(children);
 
-  return <Trigger layoutId={layoutId} {...props} />;
+  return (
+    <DialogPrimitive.Trigger {...props}>
+      {isValidElement &&
+      "layoutId" in (children as React.ReactElement<any>).props
+        ? React.cloneElement(children as React.ReactElement<any>, { layoutId })
+        : children}
+    </DialogPrimitive.Trigger>
+  );
 };
 
 export const ModalClose = ({
