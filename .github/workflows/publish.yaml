@@ -34,9 +34,9 @@ jobs:
         run: |
           pnpm i --frozen-lockfile
           pnpm build:package
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: publish packages
         run: |
           pnpm --filter "./packages/*" publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
