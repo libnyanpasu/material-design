@@ -37,34 +37,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: publish packages (tailwind)
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          package: "./packages/tailwind"
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: 'https://registry.npmjs.org/'
-          tag: ${{ inputs.release_type }}
-
-      - name: publish packages (react)
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          package: "./packages/react"
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: 'https://registry.npmjs.org/'
-          tag: ${{ inputs.release_type }}
-
-      - name: publish packages (libs)
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          package: "./packages/libs"
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: 'https://registry.npmjs.org/'
-          tag: ${{ inputs.release_type }}
-
-      - name: publish packages (components)
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          package: "./packages/components"
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: 'https://registry.npmjs.org/'
-          tag: ${{ inputs.release_type }}
+      - name: publish packages
+        run: |
+          pnpm --filter "./packages/*" publish --no-git-checks
