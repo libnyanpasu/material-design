@@ -1,0 +1,58 @@
+name: Publish Package to npmjs
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        type: choice
+        description: "<dev|latest>"
+        required: true
+        default: "dev"
+        options:
+          - dev
+          - latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: build
+        run: |
+          pnpm i --frozen-lockfile
+          pnpm build:package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: publish packages (tailwind)
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          package: "./packages/tailwind"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ inputs.release_type }}
+
+      - name: publish packages (react)
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          package: "./packages/react"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ inputs.release_type }}
+
+      - name: publish packages (libs)
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          package: "./packages/libs"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ inputs.release_type }}

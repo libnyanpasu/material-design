@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, buttonVariants } from "@nyanpasu/material-design-react";
+import { Button, buttonVariants } from "@libnyanpasu/material-design-react";
 import { Container } from "@/components/container";
 import VariantsTable from "@/components/variants-table";
 

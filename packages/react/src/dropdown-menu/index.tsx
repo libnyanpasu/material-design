@@ -3,8 +3,8 @@ import {
   dropdownMenuSeparatorVariants,
   dropdownMenuContentVariants,
   selectItemVariants,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { useControllableValue } from "ahooks";
 import { AnimatePresence, motion } from "framer-motion";

@@ -1,8 +1,8 @@
 import {
   modalContainerVariants,
   modalOverlayVariants,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useControllableValue, useCreation } from "ahooks";
 import { AnimatePresence, motion } from "framer-motion";

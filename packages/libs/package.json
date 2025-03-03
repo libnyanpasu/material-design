@@ -1,5 +1,16 @@
 {
-  "name": "@nyanpasu/material-design-libs",
+  "name": "@libnyanpasu/material-design-libs",
+  "version": "0.1.0",
+  "author": "Nyanpasu org.",
+  "description": "Material Design Utility Libraries",
+  "keywords": [
+    "material design",
+    "nyanpasu"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libnyanpasu/material-design.git#main"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/src/index.d.ts",

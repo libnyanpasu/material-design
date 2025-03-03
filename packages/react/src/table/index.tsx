@@ -15,8 +15,8 @@ import {
   type TableHeadVariantsProps,
   type TableRowVariantsProps,
   type TableVariantsProps,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import React from "react";
 
 const TableContext = React.createContext<TableContainerVariantsProps>({});

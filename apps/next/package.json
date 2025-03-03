@@ -1,5 +1,5 @@
 {
-  "name": "@nyanpasu/next",
+  "name": "@libnyanpasu/next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nyanpasu/material-design-libs": "workspace:^",
-    "@nyanpasu/material-design-react": "workspace:^",
+    "@libnyanpasu/material-design-libs": "workspace:^",
+    "@libnyanpasu/material-design-react": "workspace:^",
     "babel-plugin-react-compiler": "0.0.0-experimental-fe484b5-20240912",
     "next": "15.1.3",
     "react": "19.0.0",

@@ -1,7 +1,7 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Decorator, Preview } from "@storybook/react";
 import "./style.css";
-import { MDProvider } from "@nyanpasu/material-design-react";
+import { MDProvider } from "@libnyanpasu/material-design-react";
 import React from "react";
 
 const preview: Preview = {

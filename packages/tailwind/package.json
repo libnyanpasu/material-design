@@ -1,5 +1,16 @@
 {
-  "name": "@nyanpasu/material-design-tailwind",
+  "name": "@libnyanpasu/material-design-tailwind",
   "version": "0.1.0",
-  "main": "src/index.js"
+  "main": "src/index.js",
+  "author": "Nyanpasu org.",
+  "description": "Material Design Tailwind Plugin",
+  "keywords": [
+    "tailwind",
+    "material design",
+    "nyanpasu"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libnyanpasu/material-design.git#main"
+  }
 }

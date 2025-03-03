@@ -4,8 +4,8 @@ import {
   inputLineVariants,
   inputVariants,
   type InputContainerVariants,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import { useCreation } from "ahooks";
 import React from "react";
 import { chains } from "../utils/chian";

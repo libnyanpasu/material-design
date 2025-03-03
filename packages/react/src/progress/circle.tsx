@@ -1,4 +1,4 @@
-import { cn } from "@nyanpasu/material-design-libs";
+import { cn } from "@libnyanpasu/material-design-libs";
 import React from "react";
 
 const BASE_STROKE_WIDTH = 10;

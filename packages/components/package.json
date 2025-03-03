@@ -1,5 +1,5 @@
 {
-  "name": "@nyanpasu/material-design-components",
+  "name": "@libnyanpasu/material-design-components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/src/index.d.ts",
@@ -11,9 +11,9 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@nyanpasu/material-design-libs": "workspace:^"
+    "@libnyanpasu/material-design-libs": "workspace:^"
   },
   "peerDependencies": {
-    "@nyanpasu/material-design-libs": "*"
+    "@libnyanpasu/material-design-libs": "*"
   }
 }

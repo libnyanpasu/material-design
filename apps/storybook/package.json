@@ -1,5 +1,5 @@
 {
-  "name": "@nyanpasu/material-design-storybook",
+  "name": "@libnyanpasu/material-design-storybook",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,8 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@nyanpasu/material-design-react": "workspace:^",
-    "@nyanpasu/material-design-tailwind": "workspace:^",
+    "@libnyanpasu/material-design-react": "workspace:^",
+    "@libnyanpasu/material-design-tailwind": "workspace:^",
     "next": "15.1.7",
     "react": "19.0.0",
     "react-dom": "19.0.0"

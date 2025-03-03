@@ -1,6 +1,6 @@
 "use client";
 
-import type { ExtendedCVAFunction } from "@nyanpasu/material-design-libs/utils/tcva";
+import type { ExtendedCVAFunction } from "@libnyanpasu/material-design-libs/utils/tcva";
 import type { ComponentType } from "react";
 
 export function VariantsTable<T>({

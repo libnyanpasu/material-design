@@ -1,4 +1,4 @@
-import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
+import { tcva, type VariantProps } from "@libnyanpasu/material-design-libs";
 import { dropdownMenuLabelVariants, dropdownMenuContentVariants } from "../dropdown-menu";
 
 export const selectTriggerVariants = tcva([

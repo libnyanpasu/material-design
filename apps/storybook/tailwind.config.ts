@@ -1,4 +1,4 @@
-import mdplugin from "@nyanpasu/material-design-tailwind";
+import mdplugin from "@libnyanpasu/material-design-tailwind";
 import type { Config } from "tailwindcss";
 
 export default {

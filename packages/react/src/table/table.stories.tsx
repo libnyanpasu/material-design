@@ -1,4 +1,4 @@
-import { tableContainerVariants } from "@nyanpasu/material-design-components";
+import { tableContainerVariants } from "@libnyanpasu/material-design-components";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import {

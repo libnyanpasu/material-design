@@ -1,8 +1,8 @@
 import {
   buttonVariants,
   ButtonVariantsProps,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import { Slot } from "@radix-ui/react-slot";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";

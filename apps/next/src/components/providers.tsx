@@ -1,6 +1,6 @@
 "use client";
 
-import { MDProvider } from "@nyanpasu/material-design-react";
+import { MDProvider } from "@libnyanpasu/material-design-react";
 
 export default function Providers({
   children,

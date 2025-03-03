@@ -1,8 +1,8 @@
 import {
   switchThumbVariants,
   switchVariants,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import React from "react";
 

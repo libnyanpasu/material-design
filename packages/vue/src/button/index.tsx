@@ -1,8 +1,8 @@
 import {
   buttonVariants,
   ButtonVariantsProps,
-} from "@nyanpasu/material-design-components";
-import { cn } from "@nyanpasu/material-design-libs";
+} from "@libnyanpasu/material-design-components";
+import { cn } from "@libnyanpasu/material-design-libs";
 import { Slot } from "radix-vue";
 import { ButtonHTMLAttributes, defineComponent } from "vue";
 

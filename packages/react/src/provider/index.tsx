@@ -1,4 +1,4 @@
-import { createTheme } from "@nyanpasu/material-design-libs";
+import { createTheme } from "@libnyanpasu/material-design-libs";
 import React from "react";
 
 const DEFAULT_COLOR = "#005cbb";

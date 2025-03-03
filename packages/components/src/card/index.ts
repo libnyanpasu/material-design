@@ -1,4 +1,4 @@
-import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
+import { tcva, type VariantProps } from "@libnyanpasu/material-design-libs";
 
 export const cardVariants = tcva(["rounded-3xl", "dark:text-surface"], {
   variants: {

@@ -1,3 +1,3 @@
-import { createTheme } from "@nyanpasu/material-design-libs";
+import { createTheme } from "@libnyanpasu/material-design-libs";
 
 export { createTheme };

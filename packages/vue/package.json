@@ -1,12 +1,12 @@
 {
-  "name": "@nyanpasu/material-design-vue",
+  "name": "@libnyanpasu/material-design-vue",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@nyanpasu/material-design-components": "workspace:^",
-    "@nyanpasu/material-design-libs": "workspace:^",
+    "@libnyanpasu/material-design-components": "workspace:^",
+    "@libnyanpasu/material-design-libs": "workspace:^",
     "radix-vue": "^1.9.5",
     "vue": "^3.4.38"
   }

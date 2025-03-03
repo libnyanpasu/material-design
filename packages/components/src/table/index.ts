@@ -1,4 +1,4 @@
-import { tcva, type VariantProps } from "@nyanpasu/material-design-libs";
+import { tcva, type VariantProps } from "@libnyanpasu/material-design-libs";
 
 export const tableContainerVariants = tcva(
   ["relative w-full overflow-auto rounded-3xl"],

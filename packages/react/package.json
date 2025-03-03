@@ -1,5 +1,17 @@
 {
-  "name": "@nyanpasu/material-design-react",
+  "name": "@libnyanpasu/material-design-react",
+  "version": "0.1.0",
+  "author": "Nyanpasu org.",
+  "description": "Material Design React Components",
+  "keywords": [
+    "react",
+    "material design",
+    "nyanpasu"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libnyanpasu/material-design.git#main"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -11,8 +23,8 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "@nyanpasu/material-design-components": "workspace:^",
-    "@nyanpasu/material-design-libs": "workspace:^",
+    "@libnyanpasu/material-design-components": "workspace:^",
+    "@libnyanpasu/material-design-libs": "workspace:^",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.4",
     "@radix-ui/react-select": "^2.1.2",
