@@ -27,5 +27,8 @@
     "clsx": "*",
     "lodash-es": "*",
     "tailwind-merge": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

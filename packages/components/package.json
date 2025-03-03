@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "@libnyanpasu/material-design-libs": "workspace:^"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
