@@ -1,0 +1,57 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        type: choice
+        description: "<major|minor|patch>"
+        required: true
+        default: "patch"
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.version_type }} release
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+      discussions: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Prepare Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install
+        run: pnpm i --frozen-lockfile
+
+      - name: Bump version
+        id: bump-version
+        shell: bash
+        # Use npm because yarn is for some reason not able to output only the version name
+        run: |
+          echo "version=$(pnpm run publish ${{ inputs.version_type }} | tail -n1)" >> $GITHUB_OUTPUT
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: bump version to v${{ steps.bump-version.outputs.version }}"
+          commit_user_name: "Nyanpasu Bot"
+          commit_user_email: "gitbot@elaina.moe"
+          tagging_message: "v${{ steps.bump-version.outputs.version }}"
