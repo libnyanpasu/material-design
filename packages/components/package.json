@@ -24,8 +24,5 @@
   },
   "dependencies": {
     "@libnyanpasu/material-design-libs": "workspace:^"
-  },
-  "peerDependencies": {
-    "@libnyanpasu/material-design-libs": "*"
   }
 }
