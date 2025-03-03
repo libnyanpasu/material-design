@@ -25,6 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: latest
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -40,26 +41,30 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           package: "./packages/tailwind"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://registry.npmjs.org/'
           tag: ${{ inputs.release_type }}
 
       - name: publish packages (react)
         uses: JS-DevTools/npm-publish@v3
         with:
           package: "./packages/react"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://registry.npmjs.org/'
           tag: ${{ inputs.release_type }}
 
       - name: publish packages (libs)
         uses: JS-DevTools/npm-publish@v3
         with:
           package: "./packages/libs"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://registry.npmjs.org/'
           tag: ${{ inputs.release_type }}
 
       - name: publish packages (components)
         uses: JS-DevTools/npm-publish@v3
         with:
           package: "./packages/components"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://registry.npmjs.org/'
           tag: ${{ inputs.release_type }}
