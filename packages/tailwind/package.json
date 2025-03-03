@@ -2,6 +2,7 @@
   "name": "@libnyanpasu/material-design-tailwind",
   "version": "0.1.2",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "author": "Nyanpasu org.",
   "description": "Material Design Tailwind Plugin",
   "keywords": [
