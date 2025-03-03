@@ -1,6 +1,6 @@
 {
   "name": "@libnyanpasu/scripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/yargs": "^17.0.33",
