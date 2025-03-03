@@ -28,7 +28,7 @@ export const buttonVariants = tcva(
         stroked: [
           "px-6",
           "text-primary dark:text-on-primary",
-          "border-2/3 border-primary-container dark:hover:border-on-primary-container",
+          "border border-primary-container dark:hover:border-on-primary-container",
           "bg-transparent-fallback-surface dark:bg-transparent-fallback-on-surface",
           "hover:bg-primary-container dark:hover:bg-on-primary-container",
         ],

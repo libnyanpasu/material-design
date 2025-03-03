@@ -68,7 +68,7 @@ const color = ({ addUtilities }) => {
       };
     });
 
-    ["stroke", "fill", "border"].forEach((property) => {
+    ["stroke", "fill"].forEach((property) => {
       acc[`.${property}-${color}`] = {
         [property]: `rgb(var(--md-light-${color}-rgb))`,
       };
@@ -84,6 +84,22 @@ const color = ({ addUtilities }) => {
           [property]: `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
         };
       });
+    });
+
+    acc[`.border-${color}`] = {
+      "border-color": `rgb(var(--md-light-${color}-rgb))`,
+    };
+    acc[`.dark .border-${color}`] = {
+      "border-color": `rgb(var(--md-dark-${color}-rgb))`,
+    };
+
+    opacitys.forEach((opacity) => {
+      acc[`.border-${color}/${opacity}`] = {
+        "border-color": `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+      };
+      acc[`.dark .border-${color}/${opacity}`] = {
+        "border-color": `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+      };
     });
 
     acc[`.bg-transparent-fallback-${color}`] = {

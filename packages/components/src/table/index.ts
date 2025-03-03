@@ -7,7 +7,7 @@ export const tableContainerVariants = tcva(
       variant: {
         basic: ["bg-surface"],
         raised: ["shadow-container"],
-        stroked: ["border-2/3 border-on-primary-container/30"],
+        stroked: ["border border-on-primary-container/30"],
         fab: ["bg-primary-container/30"],
       },
     },
