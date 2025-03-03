@@ -56,3 +56,10 @@ jobs:
           package: "./packages/libs"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ inputs.release_type }}
+
+      - name: publish packages (components)
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          package: "./packages/components"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ inputs.release_type }}
