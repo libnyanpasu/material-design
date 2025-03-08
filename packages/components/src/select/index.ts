@@ -1,5 +1,8 @@
 import { tcva, type VariantProps } from "@libnyanpasu/material-design-libs";
-import { dropdownMenuLabelVariants, dropdownMenuContentVariants } from "../dropdown-menu";
+import {
+  dropdownMenuContentVariants,
+  dropdownMenuLabelVariants,
+} from "../dropdown-menu";
 
 export const selectTriggerVariants = tcva([
   "relative box-border inline-flex w-full flex-auto items-baseline overflow-hidden",
@@ -71,6 +74,7 @@ export const selectItemVariants = tcva([
   dropdownMenuLabelVariants.base,
   "cursor-pointer",
   "hover:bg-surface-variant data-[state=checked]:bg-primary-container",
+  "dark:hover:bg-on-surface-variant dark:data-[state=checked]:bg-on-primary-container",
 ]);
 
 export type SelectItemVariants = VariantProps<typeof selectItemVariants>;
