@@ -18,7 +18,7 @@ export const switchThumbVariants = tcva([
   "data-[state=checked]:bg-surface data-[state=unchecked]:bg-on-surface/80",
   "dark:data-[state=checked]:bg-surface dark:data-[state=unchecked]:bg-surface/90",
   "data-[state=checked]:size-5.5 data-[state=unchecked]:size-4",
-  "data-[state=checked]:translate-x-6.5 data-[state=unchecked]:translate-x-2",
+  "data-[state=checked]:translate-x-6.5 data-[state=unchecked]:translate-x-1.5",
 ]);
 
 export type SwitchThumbVariants = VariantProps<typeof switchThumbVariants>;
