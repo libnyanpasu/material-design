@@ -1,13 +1,15 @@
 import { tcva, type VariantProps } from "@libnyanpasu/material-design-libs";
 
 export const tableContainerVariants = tcva(
-  ["relative w-full overflow-auto rounded-3xl"],
+  ["relative w-full overflow-auto rounded-3xl dark:text-surface"],
   {
     variants: {
       variant: {
         basic: ["bg-surface"],
         raised: ["shadow-container"],
-        stroked: ["border border-on-primary-container/30"],
+        stroked: [
+          "border border-on-primary-container/30 dark:border-surface-variant/30",
+        ],
         fab: ["bg-primary-container/30"],
       },
     },
@@ -25,19 +27,24 @@ export const tableVariants = tcva(["w-full text-sm"]);
 
 export type TableVariantsProps = VariantProps<typeof tableVariants>;
 
-export const tableHeaderVariants = tcva(["[&_tr]:border-b font-bold"], {
-  variants: {
-    variant: {
-      basic: [],
-      raised: ["text-primary"],
-      stroked: [],
-      fab: ["text-on-primary-container"],
+export const tableHeaderVariants = tcva(
+  [
+    "[&_tr]:border-b [&_tr]:border-on-primary-container/30 [&_tr]:dark:border-surface-variant/30 font-bold",
+  ],
+  {
+    variants: {
+      variant: {
+        basic: [],
+        raised: ["text-primary"],
+        stroked: [],
+        fab: ["text-on-primary-container"],
+      },
+    },
+    defaultVariants: {
+      variant: "stroked",
     },
   },
-  defaultVariants: {
-    variant: "stroked",
-  },
-});
+);
 
 export type TableHeaderVariantsProps = VariantProps<typeof tableHeaderVariants>;
 
