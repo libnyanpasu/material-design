@@ -7,4 +7,5 @@ export * from "./modal";
 export * from "./progress";
 export * from "./provider";
 export * from "./select";
+export * from "./switch";
 export * from "./table";
