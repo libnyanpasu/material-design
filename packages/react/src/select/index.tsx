@@ -4,7 +4,12 @@ import {
   selectItemVariants,
   selectLabelVariants,
   selectLineVariants,
+  SelectTriggerVariants,
   selectTriggerVariants,
+  selectValuePlaceholderFieldsetVariants,
+  selectValuePlaceholderLegendVariants,
+  selectValuePlaceholderVariants,
+  selectValueVariants,
 } from "@libnyanpasu/material-design-components";
 import { cn } from "@libnyanpasu/material-design-libs";
 import * as SelectPrimitive from "@radix-ui/react-select";
@@ -15,22 +20,34 @@ import { ArrowDropDown } from "../built-in/icon/arrow-drop-down";
 import { Check } from "../built-in/icon/check";
 import { chains } from "../utils/chian";
 
-const SelectContext = React.createContext<{
+type SelectContextType = {
   haveValue?: boolean;
   open?: boolean;
-}>({});
+} & SelectTriggerVariants;
+
+const SelectContext = React.createContext<SelectContextType | null>(null);
+
+const useSelectContext = () => {
+  const context = React.useContext(SelectContext);
+
+  if (!context) {
+    throw new Error("Select compound components must be used within a Select");
+  }
+
+  return context;
+};
 
 export const SelectLine = ({
   className,
   ...props
 }: React.ComponentProps<"div">) => {
-  const { open, haveValue } = React.useContext(SelectContext);
+  const { variant } = useSelectContext();
 
   return (
     <div
       className={cn(
         selectLineVariants({
-          focus: open ?? haveValue,
+          variant,
         }),
         className,
       )}
@@ -41,8 +58,10 @@ export const SelectLine = ({
 
 export const Select = ({
   onValueChange,
+  variant,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) => {
+}: React.ComponentProps<typeof SelectPrimitive.Root> &
+  SelectTriggerVariants) => {
   const [open, setOpen] = useControllableValue(props, {
     valuePropName: "open",
     trigger: "onOpenChange",
@@ -61,7 +80,13 @@ export const Select = ({
   );
 
   return (
-    <SelectContext.Provider value={{ open, haveValue }}>
+    <SelectContext.Provider
+      value={{
+        open,
+        haveValue,
+        variant,
+      }}
+    >
       <SelectPrimitive.Root
         open={open}
         onOpenChange={setOpen}
@@ -72,29 +97,75 @@ export const Select = ({
   );
 };
 
+export type SelectProps = React.ComponentProps<typeof Select>;
+
 export const SelectValue = ({
   className,
   placeholder,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) => {
-  return (
-    <div className={cn("pointer-events-none mt-3 pr-10", className)}>
-      <SelectPrimitive.Value {...props} />
+  const { haveValue, open, variant } = useSelectContext();
 
-      {placeholder && <SelectLabel>{placeholder}</SelectLabel>}
-    </div>
+  return (
+    <>
+      <div
+        className={cn(
+          selectValueVariants({
+            variant,
+            haveValue,
+          }),
+          className,
+        )}
+      >
+        <SelectPrimitive.Value {...props} />
+      </div>
+
+      <fieldset
+        className={cn(
+          selectValuePlaceholderFieldsetVariants({
+            variant,
+          }),
+        )}
+      >
+        <legend
+          className={cn(
+            selectValuePlaceholderLegendVariants({
+              variant,
+              haveValue,
+            }),
+          )}
+        >
+          {placeholder}
+        </legend>
+      </fieldset>
+
+      <div
+        className={cn(
+          selectValuePlaceholderVariants({
+            variant,
+            focus: haveValue || open,
+          }),
+        )}
+      >
+        {placeholder}
+      </div>
+    </>
   );
+};
+
+export const SelectGroup = (
+  props: React.ComponentProps<typeof SelectPrimitive.Group>,
+) => {
+  return <SelectPrimitive.Group {...props} />;
 };
 
 export const SelectLabel = ({
   className,
   ...props
-}: React.ComponentProps<"div">) => {
-  const { open, haveValue } = React.useContext(SelectContext);
-
+}: React.ComponentProps<typeof SelectPrimitive.Label>) => {
   return (
-    <div
-      className={cn(selectLabelVariants({ haveValue, focus: open }), className)}
+    <SelectPrimitive.Label
+      className={cn(selectLabelVariants(), className)}
       {...props}
     />
   );
@@ -105,9 +176,11 @@ export const SelectTrigger = ({
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger>) => {
+  const { variant } = useSelectContext();
+
   return (
     <SelectPrimitive.Trigger
-      className={cn(selectTriggerVariants(), className)}
+      className={cn(selectTriggerVariants({ variant }), className)}
       {...props}
     >
       {children}
@@ -141,7 +214,7 @@ export const SelectContent = ({
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) => {
-  const { open } = React.useContext(SelectContext);
+  const { open } = useSelectContext();
 
   return (
     <AnimatePresence initial={false}>
