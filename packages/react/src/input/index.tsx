@@ -8,7 +8,6 @@ import {
 import { cn } from "@libnyanpasu/material-design-libs";
 import { useCreation } from "ahooks";
 import React from "react";
-import { chains } from "../utils/chian";
 
 export const InputContext = React.createContext<{
   haveLabel?: boolean;
@@ -37,7 +36,6 @@ export const InputLine = ({
 
 export const Input = ({
   className,
-  onChange,
   label,
   children,
   ...props
@@ -62,22 +60,14 @@ export const Input = ({
     return false;
   }, []);
 
-  const [haveValue, setHaveValue] = React.useState(
-    Boolean(props.value || props.defaultValue),
-  );
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHaveValue(Boolean(e.target.value));
-  };
+  const haveValue = React.useMemo(() => {
+    return Boolean(props.value || props.defaultValue);
+  }, [props.value, props.defaultValue]);
 
   return (
     <InputContext.Provider value={{ haveLabel, haveValue }}>
       <InputContainer haveLabel={haveLabel}>
-        <input
-          className={cn(inputVariants(), className)}
-          onChange={chains(handleOnChange, onChange)}
-          {...props}
-        />
+        <input className={cn(inputVariants(), className)} {...props} />
 
         {label && <InputLabel>{label}</InputLabel>}
 
