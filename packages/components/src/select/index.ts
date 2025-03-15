@@ -44,6 +44,9 @@ export const selectLineVariants = tcva([], {
         "group-data-[state=open]:border-b-0",
         "group-data-[state=open]:after:scale-x-100",
         "group-data-[state=open]:after:opacity-100",
+        "peer-focus:border-b-0",
+        "peer-focus:after:scale-x-100",
+        "peer-focus:after:opacity-100",
       ],
       // hidden line for outlined variant
       outlined: "hidden",
@@ -147,30 +150,39 @@ export type SelectValuePlaceholderVariants = VariantProps<
   typeof selectValuePlaceholderVariants
 >;
 
-export const selectValuePlaceholderFieldsetVariants = tcva([], {
-  variants: {
-    variant: {
-      // only for outlined variant
-      filled: "hidden",
-      outlined: [
-        "absolute inset-0 text-left",
-        "rounded transition-all duration-200",
-        // may open border width will be 1.5, idk
-        "group-data-[state=closed]:border",
-        "group-data-[state=open]:border-2",
-        // different material web border color, i think this looks better
-        "group-data-[state=closed]:border-primary-container",
-        "group-data-[state=open]:border-primary",
-        // dark must be prefixed
-        "group-dark:data-[state=closed]:border-primary-container",
-        "group-dark:data-[state=open]:border-inverse-primary",
-      ],
+export const selectValuePlaceholderFieldsetVariants = tcva(
+  ["pointer-events-none"],
+  {
+    variants: {
+      variant: {
+        // only for outlined variant
+        filled: "hidden",
+        outlined: [
+          "absolute inset-0 text-left",
+          "rounded transition-all duration-200",
+          // may open border width will be 1.5, idk
+          "group-data-[state=closed]:border",
+          "group-data-[state=open]:border-2",
+          "peer-not-focus:border",
+          "peer-focus:border-2",
+          // different material web border color, i think this looks better
+          "group-data-[state=closed]:border-primary-container",
+          "group-data-[state=open]:border-primary",
+          "peer-not-focus:border-primary-container",
+          "peer-focus:border-primary",
+          // dark must be prefixed
+          "dark:group-data-[state=closed]:border-primary-container",
+          "dark:group-data-[state=open]:border-inverse-primary",
+          "dark:peer-not-focus:border-primary-container",
+          "dark:peer-focus:border-inverse-primary",
+        ],
+      },
+    },
+    defaultVariants: {
+      variant: "filled",
     },
   },
-  defaultVariants: {
-    variant: "filled",
-  },
-});
+);
 
 export type SelectValuePlaceholderFieldsetVariants = VariantProps<
   typeof selectValuePlaceholderFieldsetVariants
@@ -192,7 +204,7 @@ export const selectValuePlaceholderLegendVariants = tcva([], {
     {
       variant: "outlined",
       haveValue: false,
-      className: "group-data-[state=closed]:hidden",
+      className: ["group-data-[state=closed]:hidden", "group-not-focus:hidden"],
     },
   ],
   defaultVariants: {

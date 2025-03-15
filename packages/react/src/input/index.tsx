@@ -1,5 +1,7 @@
 import {
   inputContainerVariants,
+  inputLabelFieldsetVariants,
+  inputLabelLegendVariants,
   inputLabelVariants,
   inputLineVariants,
   inputVariants,
@@ -7,21 +9,39 @@ import {
 } from "@libnyanpasu/material-design-components";
 import { cn } from "@libnyanpasu/material-design-libs";
 import { useCreation } from "ahooks";
-import React from "react";
+import React, { useEffect } from "react";
 
-export const InputContext = React.createContext<{
+type InputContextType = {
   haveLabel?: boolean;
   haveValue?: boolean;
-}>({});
+} & InputContainerVariants;
+
+const InputContext = React.createContext<InputContextType | null>(null);
+
+const useInputContext = () => {
+  const context = React.useContext(InputContext);
+
+  if (!context) {
+    throw new Error("InputContext is undefined");
+  }
+
+  return context;
+};
 
 export const InputContainer = ({
-  haveLabel,
   className,
   ...props
-}: React.ComponentProps<"div"> & InputContainerVariants) => {
+}: React.ComponentProps<"div">) => {
+  const { variant } = useInputContext();
+
   return (
     <div
-      className={cn(inputContainerVariants({ haveLabel }), className)}
+      className={cn(
+        inputContainerVariants({
+          variant,
+        }),
+        className,
+      )}
       {...props}
     />
   );
@@ -31,17 +51,35 @@ export const InputLine = ({
   className,
   ...props
 }: React.ComponentProps<"input">) => {
-  return <div className={cn(inputLineVariants(), className)} {...props} />;
+  const { variant } = useInputContext();
+
+  return (
+    <div
+      className={cn(
+        inputLineVariants({
+          variant,
+        }),
+        className,
+      )}
+      {...props}
+    />
+  );
 };
 
+export type InputProps = React.ComponentProps<"input"> & {
+  label?: string;
+} & InputContainerVariants;
+
 export const Input = ({
+  variant,
   className,
   label,
   children,
+  onChange,
   ...props
-}: React.ComponentProps<"input"> & {
-  label?: string;
-}) => {
+}: InputProps) => {
+  const [haveValue, setHaveValue] = React.useState(false);
+
   const haveLabel = useCreation(() => {
     if (label) {
       return true;
@@ -60,16 +98,69 @@ export const Input = ({
     return false;
   }, []);
 
-  const haveValue = React.useMemo(() => {
-    return Boolean(props.value || props.defaultValue);
+  useEffect(() => {
+    if (props.value || props.defaultValue) {
+      setHaveValue(true);
+    } else {
+      setHaveValue(false);
+    }
   }, [props.value, props.defaultValue]);
 
-  return (
-    <InputContext.Provider value={{ haveLabel, haveValue }}>
-      <InputContainer haveLabel={haveLabel}>
-        <input className={cn(inputVariants(), className)} {...props} />
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setHaveValue(event.target.value.length > 0);
+    onChange?.(event);
+  };
 
-        {label && <InputLabel>{label}</InputLabel>}
+  useEffect(() => {
+    console.log("haveValue", haveValue);
+  }, [haveValue]);
+
+  return (
+    <InputContext.Provider
+      value={{
+        haveLabel,
+        haveValue,
+        variant,
+      }}
+    >
+      <InputContainer>
+        <input
+          className={cn(
+            inputVariants({
+              variant,
+              haveValue,
+              haveLabel,
+            }),
+            className,
+          )}
+          onChange={handleChange}
+          {...props}
+        />
+
+        {label && (
+          <>
+            <fieldset
+              className={cn(
+                inputLabelFieldsetVariants({
+                  variant,
+                }),
+              )}
+            >
+              <legend
+                className={cn(
+                  inputLabelLegendVariants({
+                    variant,
+                    haveValue,
+                  }),
+                )}
+              >
+                {label}
+              </legend>
+            </fieldset>
+
+            <InputLabel>{label}</InputLabel>
+          </>
+        )}
 
         {children}
 
@@ -85,11 +176,16 @@ export const InputLabel = ({
   className,
   ...props
 }: React.ComponentProps<"label">) => {
-  const { haveValue } = React.useContext(InputContext);
+  const { haveValue, variant } = useInputContext();
 
   return (
     <label
-      className={cn(inputLabelVariants({ haveValue }), className)}
+      className={cn(
+        inputLabelVariants({
+          variant,
+          focus: haveValue,
+        }),
+      )}
       {...props}
     />
   );
