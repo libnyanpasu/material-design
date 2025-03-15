@@ -209,10 +209,17 @@ export const selectIconVariants = tcva(["absolute right-4"]);
 
 export type SelectIconVariants = VariantProps<typeof selectIconVariants>;
 
-export const selectContentVariants = tcva([
-  dropdownMenuContentVariants.base,
-  "rounded-t-none",
-]);
+export const selectContentVariants = tcva([dropdownMenuContentVariants.base], {
+  variants: {
+    variant: {
+      filled: "rounded-t-none",
+      outlined: "",
+    },
+  },
+  defaultVariants: {
+    variant: "filled",
+  },
+});
 
 export type SelectContentVariants = VariantProps<typeof selectContentVariants>;
 
