@@ -28,7 +28,7 @@ export const Circle = ({
 
   return (
     <circle
-      className={cn("stroke-current stroke-1/10 fill-transparent", className)}
+      className={cn("stroke-current stroke-[10%] fill-transparent", className)}
       cx="50%"
       cy="50%"
       r="45"
