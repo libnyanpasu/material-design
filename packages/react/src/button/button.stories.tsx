@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 import { Button, buttonVariants } from "./";
 
 type Story = StoryObj<typeof Button>;
@@ -29,6 +28,7 @@ export default {
 export const Default: Story = {
   args: {
     variant: "raised",
+    onClick: () => console.log("clicked"),
   },
 };
 
@@ -38,25 +38,6 @@ export const Icon: Story = {
     icon: true,
     variant: "flat",
   },
-};
-
-// issue: https://github.com/storybookjs/storybook/issues/29189
-const LoadingTemplate = () => {
-  const [isPending, startTransition] = React.useTransition();
-
-  const handleClick = () => {
-    startTransition(async () => {
-      new Promise((resolve) => {
-        setTimeout(resolve, 2000);
-      });
-    });
-  };
-
-  return (
-    <Button onClick={handleClick} loading={isPending}>
-      Click to loading
-    </Button>
-  );
 };
 
 export const Loading: Story = {

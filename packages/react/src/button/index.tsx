@@ -27,6 +27,7 @@ export const Button = ({
   icon,
   className,
   children,
+  onClick,
   ...props
 }: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
@@ -35,16 +36,19 @@ export const Button = ({
 
   const allowClick = !disabled && !loading;
 
+  const handleClick = allowClick ? chains(onClick, ripple?.onClick) : undefined;
+
   return (
     <Comp
-      className={cn(buttonVariants({ variant, disabled, icon }), className)}
-      onClick={
-        allowClick
-          ? ripple
-            ? chains(ripple.onClick, props.onClick)
-            : props.onClick
-          : undefined
-      }
+      className={cn(
+        buttonVariants({
+          variant,
+          disabled,
+          icon,
+        }),
+        className,
+      )}
+      onClick={handleClick}
       {...props}
     >
       {asChild ? (
