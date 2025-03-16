@@ -128,13 +128,25 @@ const color = ({ addUtilities }) => {
 
 const subtract = ({ addUtilities, theme }) => {
   const heights = theme("height");
+
   const subtractRules = Object.keys(heights).reduce((acc, key) => {
     const originalValue = heights[key];
+
     acc[`.h-dvh-subtract-${key}`] = {
       height: `calc(100dvh - ${originalValue})`,
     };
+
+    acc[`.max-h-dvh-subtract-${key}`] = {
+      "max-height": `calc(100dvh - ${originalValue})`,
+    };
+
+    acc[`.min-h-dvh-subtract-${key}`] = {
+      "min-height": `calc(100dvh - ${originalValue})`,
+    };
+
     return acc;
   }, {});
+
   addUtilities(subtractRules);
 };
 
