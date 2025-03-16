@@ -150,10 +150,75 @@ const subtract = ({ addUtilities, theme }) => {
   addUtilities(subtractRules);
 };
 
+const textShadow = ({ addUtilities }) => {
+  const defaultShadows = {
+    ".text-shadow-none": {
+      "text-shadow": "none",
+    },
+    ".text-shadow-sm": {
+      "text-shadow": "0px 1px 1px rgba(0, 0, 0, 0.14)",
+    },
+    ".text-shadow": {
+      "text-shadow": "0px 2px 2px rgba(0, 0, 0, 0.14)",
+    },
+    ".text-shadow-md": {
+      "text-shadow": "0px 3px 3px rgba(0, 0, 0, 0.14)",
+    },
+    ".text-shadow-lg": {
+      "text-shadow": "0px 4px 4px rgba(0, 0, 0, 0.14)",
+    },
+    ".text-shadow-xl": {
+      "text-shadow": "0px 6px 6px rgba(0, 0, 0, 0.14)",
+    },
+    ".text-shadow-2xl": {
+      "text-shadow": "0px 8px 8px rgba(0, 0, 0, 0.14)",
+    },
+  };
+
+  const coloredShadows = colorScheme.reduce((acc, color) => {
+    // Regular shadows with each color
+    acc[`.text-shadow-${color}`] = {
+      "text-shadow": `0px 2px 2px rgba(var(--md-light-${color}-rgb), 0.14)`,
+    };
+    acc[`.dark .text-shadow-${color}`] = {
+      "text-shadow": `0px 2px 2px rgba(var(--md-dark-${color}-rgb), 0.14)`,
+    };
+
+    // Size variants for each color
+    ['sm', 'md', 'lg', 'xl', '2xl'].forEach((size, index) => {
+      const pixelSize = [1, 3, 4, 6, 8][index];
+      acc[`.text-shadow-${size}-${color}`] = {
+        "text-shadow": `0px ${pixelSize}px ${pixelSize}px rgba(var(--md-light-${color}-rgb), 0.14)`,
+      };
+      acc[`.dark .text-shadow-${size}-${color}`] = {
+        "text-shadow": `0px ${pixelSize}px ${pixelSize}px rgba(var(--md-dark-${color}-rgb), 0.14)`,
+      };
+    });
+
+    // Opacity variants
+    opacitys.forEach((opacity) => {
+      acc[`.text-shadow-${color}/${opacity}`] = {
+        "text-shadow": `0px 2px 2px rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+      };
+      acc[`.dark .text-shadow-${color}/${opacity}`] = {
+        "text-shadow": `0px 2px 2px rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+      };
+    });
+
+    return acc;
+  }, {});
+
+  addUtilities({
+    ...defaultShadows,
+    ...coloredShadows
+  });
+};
+
 export default createPlugin(
   (api) => {
     color(api);
     subtract(api);
+    textShadow(api);
   },
   {
     theme: {
