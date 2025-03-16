@@ -27,10 +27,10 @@ export const buttonVariants = tcva(
         ],
         stroked: [
           "px-6",
-          "text-primary dark:text-on-primary",
-          "border border-primary-container dark:hover:border-on-primary-container",
+          "text-primary dark:text-primary-container",
+          "border border-primary-container dark:border-inverse-primary",
           "bg-transparent-fallback-surface dark:bg-transparent-fallback-on-surface",
-          "hover:bg-primary-container dark:hover:bg-on-primary-container",
+          "hover:bg-primary-container dark:hover:bg-on-secondary-container",
         ],
         flat: [
           "px-6",
