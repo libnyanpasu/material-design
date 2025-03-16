@@ -34,9 +34,7 @@ export const Button = ({
 
   const ripple = disabled || asChild ? null : useRipple();
 
-  const allowClick = !disabled && !loading;
-
-  const handleClick = allowClick ? chains(onClick, ripple?.onClick) : undefined;
+  const handleClick = disabled ? undefined : chains(onClick, ripple?.onClick);
 
   return (
     <Comp

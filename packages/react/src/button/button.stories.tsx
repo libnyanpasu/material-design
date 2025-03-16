@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Button, buttonVariants } from "./";
 
 type Story = StoryObj<typeof Button>;
@@ -41,7 +42,19 @@ export const Icon: Story = {
 };
 
 export const Loading: Story = {
-  args: {
-    loading: true,
+  render: (args) => {
+    const [isPending, startTransition] = React.useTransition();
+
+    const handleClick = () => {
+      startTransition(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      });
+    };
+
+    return (
+      <Button {...args} loading={isPending} onClick={handleClick}>
+        Click Loading
+      </Button>
+    );
   },
 };
