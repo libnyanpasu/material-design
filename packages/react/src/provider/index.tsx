@@ -1,11 +1,9 @@
-import { createTheme } from "@libnyanpasu/material-design-libs";
+import { insertStyle } from "@libnyanpasu/material-design-libs";
 import React from "react";
 
-const DEFAULT_COLOR = "#005cbb";
-
 const ThemeContext = React.createContext<{
-  color: string;
-  changeColor: (color: string) => void;
+  color?: string;
+  changeColor: (color?: string) => void;
 } | null>(null);
 
 export const useTheme = () => {
@@ -24,13 +22,11 @@ export interface MDProviderProps {
 }
 
 export const MDProvider = ({ children, ...props }: MDProviderProps) => {
-  const [color, setColor] = React.useState<string>(
-    props.color || DEFAULT_COLOR,
-  );
+  const [color, setColor] = React.useState<string | undefined>(props.color);
 
   React.useEffect(() => {
     if (color) {
-      createTheme(color);
+      insertStyle("material-theme", color);
     }
   }, [color]);
 

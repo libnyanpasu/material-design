@@ -22,10 +22,8 @@
     "dev": "rollup -c -w"
   },
   "peerDependencies": {
-    "@material/material-color-utilities": "*",
     "class-variance-authority": "*",
     "clsx": "*",
-    "lodash-es": "*",
     "tailwind-merge": "*"
   },
   "publishConfig": {
