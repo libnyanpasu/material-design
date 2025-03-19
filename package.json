@@ -51,7 +51,7 @@
   "dependencies": {
     "lodash-es": "^4.17.21"
   },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.6.5",
   "engines": {
     "node": ">=20"
   }
