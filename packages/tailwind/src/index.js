@@ -1,114 +1,196 @@
 import createPlugin from "tailwindcss/plugin";
 
-const colorScheme = [
-  "primary",
-  "on-primary",
-  "primary-container",
-  "on-primary-container",
-  "secondary",
-  "on-secondary",
-  "secondary-container",
-  "on-secondary-container",
-  "tertiary",
-  "on-tertiary",
-  "tertiary-container",
-  "on-tertiary-container",
-  "error",
-  "on-error",
-  "error-container",
-  "on-error-container",
-  "background",
-  "on-background",
-  "surface",
-  "on-surface",
-  "surface-variant",
-  "on-surface-variant",
-  "outline",
-  "outline-variant",
-  "shadow",
-  "scrim",
-  "inverse-surface",
-  "inverse-on-surface",
-  "inverse-primary",
-];
+// define by user
+const CUSTOM_COLOR_SEED_CSS_VARIABLE = "--md-custom-color-seed";
+const COLOR_SEED_CSS_VARIABLE = "--md-color-seed";
+const DEFAULT_SEED_COLOR = "oklch(0.5 0.20 256)";
+
+const CSS_COLOR_SCHEMA = {
+  primary: {
+    light: `var(${COLOR_SEED_CSS_VARIABLE})`,
+    dark: `color-mix(in oklch, var(${COLOR_SEED_CSS_VARIABLE}) 60%, white 40%)`,
+  },
+  "primary-container": {
+    light: "color-mix(in oklch, var(--md-light-primary) 80%, white 20%)",
+    dark: "color-mix(in oklch, var(--md-dark-primary) 30%, black 70%)",
+  },
+  "on-primary": {
+    light: "color-contrast(var(--md-light-primary) vs white, black)",
+    dark: "color-contrast(var(--md-dark-primary) vs white, black)",
+  },
+  "on-primary-container": {
+    light: "color-contrast(var(--md-light-primary-container) vs white, black)",
+    dark: "color-contrast(var(--md-dark-primary-container) vs white, black)",
+  },
+  secondary: {
+    light: `color-mix(in oklch, var(${COLOR_SEED_CSS_VARIABLE}) 60%, white 40%)`,
+    dark: `color-mix(in oklch, var(${COLOR_SEED_CSS_VARIABLE}) 40%, white 60%)`,
+  },
+  "secondary-container": {
+    light: "color-mix(in oklch, var(--md-light-secondary) 80%, white 20%)",
+    dark: "color-mix(in oklch, var(--md-dark-secondary) 20%, black 80%)",
+  },
+  "on-secondary": {
+    light: "color-contrast(var(--md-light-secondary) vs white, black)",
+    dark: "color-contrast(var(--md-dark-secondary) vs white, black)",
+  },
+  "on-secondary-container": {
+    light:
+      "color-contrast(var(--md-light-secondary-container) vs white, black)",
+    dark: "color-contrast(var(--md-dark-secondary-container) vs white, black)",
+  },
+  tertiary: {
+    light: `color-mix(in oklch, var(${COLOR_SEED_CSS_VARIABLE}) 40%, white 60%)`,
+    dark: `color-mix(in oklch, var(${COLOR_SEED_CSS_VARIABLE}) 20%, white 80%)`,
+  },
+  "tertiary-container": {
+    light: "color-mix(in oklch, var(--md-light-tertiary) 80%, white 20%)",
+    dark: "color-mix(in oklch, var(--md-dark-tertiary) 10%, black 90%)",
+  },
+  "on-tertiary": {
+    light: "color-contrast(var(--md-light-tertiary) vs white, black)",
+    dark: "color-contrast(var(--md-dark-tertiary) vs white, black)",
+  },
+  "on-tertiary-container": {
+    light: "color-contrast(var(--md-light-tertiary-container) vs white, black)",
+    dark: "color-contrast(var(--md-dark-tertiary-container) vs white, black)",
+  },
+  background: {
+    light: "oklch(98% 0 0)",
+    dark: "oklch(20% 0 0)",
+  },
+  surface: {
+    light: "oklch(98% 0 0)",
+    dark: "oklch(20% 0 0)",
+  },
+  "on-background": {
+    light: "color-contrast(var(--md-light-background) vs white, black)",
+    dark: "color-contrast(var(--md-dark-background) vs white, black)",
+  },
+  "on-surface": {
+    light: "color-contrast(var(--md-light-surface) vs white, black)",
+    dark: "color-contrast(var(--md-dark-surface) vs white, black)",
+  },
+  error: {
+    light: "oklch(62% 0.257 29)",
+    dark: "oklch(70% 0.2 29)",
+  },
+  "error-container": {
+    light: "oklch(90% 0.1 29)",
+    dark: "oklch(40% 0.15 29)",
+  },
+  "on-error": {
+    light: "color-contrast(var(--md-light-error) vs white, black)",
+    dark: "color-contrast(var(--md-dark-error) vs white, black)",
+  },
+  "on-error-container": {
+    light: "color-contrast(var(--md-light-error-container) vs white, black)",
+    dark: "color-contrast(var(--md-dark-error-container) vs white, black)",
+  },
+  shadow: {
+    light: "rgba(0, 0, 0, 0.25)",
+    dark: "rgba(0, 0, 0, 0.25)",
+  },
+  scrim: {
+    light: "rgba(0, 0, 0, 0.5)",
+    dark: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+const themeVars = ({ addBase }) => {
+  addBase({
+    ":root": {
+      [COLOR_SEED_CSS_VARIABLE]: `var(${CUSTOM_COLOR_SEED_CSS_VARIABLE}, ${DEFAULT_SEED_COLOR})`,
+      // Generate CSS variables
+      ...Object.fromEntries(
+        Object.entries(CSS_COLOR_SCHEMA).flatMap(([color, modes]) =>
+          Object.entries(modes).map(([mode, value]) => [
+            `--md-${mode}-${color}`,
+            value,
+          ]),
+        ),
+      ),
+    },
+  });
+};
 
 const opacitys = [0, 5, 10, 15, 20, 25, 30, 50, 60, 75, 80, 85, 90, 95, 100];
 
 const color = ({ addUtilities }) => {
-  const mdColors = colorScheme.reduce((acc, color) => {
+  const mdColors = Object.keys(CSS_COLOR_SCHEMA).reduce((acc, color) => {
     acc[`.bg-${color}`] = {
-      "background-color": `rgb(var(--md-light-${color}-rgb))`,
+      "background-color": `var(--md-light-${color})`,
     };
     acc[`.dark .bg-${color}`] = {
-      "background-color": `rgb(var(--md-dark-${color}-rgb))`,
+      "background-color": `var(--md-dark-${color})`,
     };
 
     opacitys.forEach((opacity) => {
       acc[`.bg-${color}/${opacity}`] = {
-        "background-color": `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+        "background-color": `color-mix(in oklch, var(--md-light-${color}) ${opacity}%, transparent)`,
       };
       acc[`.dark .bg-${color}/${opacity}`] = {
-        "background-color": `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+        "background-color": `color-mix(in oklch, var(--md-dark-${color}) ${opacity}%, transparent)`,
       };
     });
 
     acc[`.text-${color}`] = {
-      color: `rgb(var(--md-light-${color}-rgb))`,
+      color: `var(--md-light-${color})`,
     };
     acc[`.dark .text-${color}`] = {
-      color: `rgb(var(--md-dark-${color}-rgb))`,
+      color: `var(--md-dark-${color})`,
     };
 
     opacitys.forEach((opacity) => {
       acc[`.text-${color}/${opacity}`] = {
-        color: `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+        color: `color-mix(in oklch, var(--md-light-${color}) ${opacity}%, transparent)`,
       };
       acc[`.dark .text-${color}/${opacity}`] = {
-        color: `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+        color: `color-mix(in oklch, var(--md-dark-${color}) ${opacity}%, transparent)`,
       };
     });
 
     ["stroke", "fill"].forEach((property) => {
       acc[`.${property}-${color}`] = {
-        [property]: `rgb(var(--md-light-${color}-rgb))`,
+        [property]: `var(--md-light-${color})`,
       };
       acc[`.dark .${property}-${color}`] = {
-        [property]: `rgb(var(--md-dark-${color}-rgb))`,
+        [property]: `var(--md-dark-${color})`,
       };
 
       opacitys.forEach((opacity) => {
         acc[`.${property}-${color}/${opacity}`] = {
-          [property]: `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+          [property]: `color-mix(in oklch, var(--md-light-${color}) ${opacity}%, transparent)`,
         };
         acc[`.dark .${property}-${color}/${opacity}`] = {
-          [property]: `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+          [property]: `color-mix(in oklch, var(--md-dark-${color}) ${opacity}%, transparent)`,
         };
       });
     });
 
     acc[`.border-${color}`] = {
-      "border-color": `rgb(var(--md-light-${color}-rgb))`,
+      "border-color": `var(--md-light-${color})`,
     };
     acc[`.dark .border-${color}`] = {
-      "border-color": `rgb(var(--md-dark-${color}-rgb))`,
+      "border-color": `var(--md-dark-${color})`,
     };
 
     opacitys.forEach((opacity) => {
       acc[`.border-${color}/${opacity}`] = {
-        "border-color": `rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+        "border-color": `color-mix(in oklch, var(--md-light-${color}) ${opacity}%, transparent)`,
       };
       acc[`.dark .border-${color}/${opacity}`] = {
-        "border-color": `rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+        "border-color": `color-mix(in oklch, var(--md-dark-${color}) ${opacity}%, transparent)`,
       };
     });
 
     acc[`.bg-transparent-fallback-${color}`] = {
       "background-color": "transparent",
-      "--fallback-bg": `rgb(var(--md-light-${color}-rgb))`,
+      "--fallback-bg": `var(--md-light-${color})`,
     };
     acc[`.dark .bg-transparent-fallback-${color}`] = {
       "background-color": "transparent",
-      "--fallback-bg": `rgb(var(--md-dark-${color}-rgb))`,
+      "--fallback-bg": `var(--md-dark-${color})`,
     };
 
     return acc;
@@ -175,33 +257,31 @@ const textShadow = ({ addUtilities }) => {
     },
   };
 
-  const coloredShadows = colorScheme.reduce((acc, color) => {
-    // Regular shadows with each color
+  const coloredShadows = Object.keys(CSS_COLOR_SCHEMA).reduce((acc, color) => {
     acc[`.text-shadow-${color}`] = {
-      "text-shadow": `0px 2px 2px rgba(var(--md-light-${color}-rgb), 0.14)`,
+      "text-shadow": `0px 2px 2px color-mix(in oklch, var(--md-light-${color}) 14%, transparent)`,
     };
     acc[`.dark .text-shadow-${color}`] = {
-      "text-shadow": `0px 2px 2px rgba(var(--md-dark-${color}-rgb), 0.14)`,
+      "text-shadow": `0px 2px 2px color-mix(in oklch, var(--md-dark-${color}) 14%, transparent)`,
     };
 
-    // Size variants for each color
-    ['sm', 'md', 'lg', 'xl', '2xl'].forEach((size, index) => {
+    ["sm", "md", "lg", "xl", "2xl"].forEach((size, index) => {
       const pixelSize = [1, 3, 4, 6, 8][index];
       acc[`.text-shadow-${size}-${color}`] = {
-        "text-shadow": `0px ${pixelSize}px ${pixelSize}px rgba(var(--md-light-${color}-rgb), 0.14)`,
+        "text-shadow": `0px ${pixelSize}px ${pixelSize}px color-mix(in oklch, var(--md-light-${color}) 14%, transparent)`,
       };
       acc[`.dark .text-shadow-${size}-${color}`] = {
-        "text-shadow": `0px ${pixelSize}px ${pixelSize}px rgba(var(--md-dark-${color}-rgb), 0.14)`,
+        "text-shadow": `0px ${pixelSize}px ${pixelSize}px color-mix(in oklch, var(--md-dark-${color}) 14%, transparent)`,
       };
     });
 
-    // Opacity variants
+    //Opacity variants
     opacitys.forEach((opacity) => {
       acc[`.text-shadow-${color}/${opacity}`] = {
-        "text-shadow": `0px 2px 2px rgba(var(--md-light-${color}-rgb), ${opacity / 100})`,
+        "text-shadow": `0px 2px 2px color-mix(in oklch, var(--md-light-${color}) ${opacity}%, transparent)`,
       };
       acc[`.dark .text-shadow-${color}/${opacity}`] = {
-        "text-shadow": `0px 2px 2px rgba(var(--md-dark-${color}-rgb), ${opacity / 100})`,
+        "text-shadow": `0px 2px 2px color-mix(in oklch, var(--md-dark-${color}) ${opacity}%, transparent)`,
       };
     });
 
@@ -210,12 +290,13 @@ const textShadow = ({ addUtilities }) => {
 
   addUtilities({
     ...defaultShadows,
-    ...coloredShadows
+    ...coloredShadows,
   });
 };
 
 export default createPlugin(
   (api) => {
+    themeVars(api);
     color(api);
     subtract(api);
     textShadow(api);
