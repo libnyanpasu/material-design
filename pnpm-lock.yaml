@@ -101,7 +101,7 @@ importers:
         version: 4.0.2(postcss@8.5.3)
       tailwind-merge:
         specifier: ^3.0.0
-        version: 3.0.2
+        version: 3.1.0
       tailwindcss:
         specifier: ^4.0.0
         version: 4.0.14
@@ -5772,8 +5772,8 @@ packages:
   tailwind-merge@2.5.4:
     resolution: {integrity: sha512-0q8cfZHMu9nuYP/b5Shb7Y7Sh1B7Nnl5GqNr1U+n2p6+mybvRtayrQ+0042Z5byvTA8ihjlP8Odo8/VnHbZu4Q==}
 
-  tailwind-merge@3.0.2:
-    resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
+  tailwind-merge@3.1.0:
+    resolution: {integrity: sha512-aV27Oj8B7U/tAOMhJsSGdWqelfmudnGMdXIlMnk1JfsjwSjts6o8HyfN7SFH3EztzH4YH8kk6GbLTHzITJO39Q==}
 
   tailwindcss@4.0.14:
     resolution: {integrity: sha512-92YT2dpt671tFiHH/e1ok9D987N9fHD5VWoly1CdPD/Cd1HMglvZwP3nx2yTj2lbXDAHt8QssZkxTLCCTNL+xw==}
@@ -12136,7 +12136,7 @@ snapshots:
 
   tailwind-merge@2.5.4: {}
 
-  tailwind-merge@3.0.2: {}
+  tailwind-merge@3.1.0: {}
 
   tailwindcss@4.0.14: {}
 
