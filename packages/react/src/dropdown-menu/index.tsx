@@ -134,6 +134,9 @@ export const DropdownMenuContent = ({
           <DropdownMenuPrimitive.Content {...props} asChild>
             <motion.div
               className={cn(dropdownMenuContentVariants(), className)}
+              style={{
+                height: "var(--radix-popper-available-height)",
+              }}
               initial={{ opacity: 0, scaleY: 0.9, transformOrigin: "top" }}
               animate={{ opacity: 1, scaleY: 1, transformOrigin: "top" }}
               exit={{ opacity: 0, scaleY: 0.9, transformOrigin: "top" }}

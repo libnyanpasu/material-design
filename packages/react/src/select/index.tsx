@@ -225,6 +225,7 @@ export const SelectContent = ({
               className={cn(selectContentVariants(), className)}
               style={{
                 width: "var(--radix-popper-anchor-width)",
+                height: "var(--radix-popper-anchor-height)",
               }}
               initial={{ opacity: 0, scaleY: 0.9, transformOrigin: "top" }}
               animate={{ opacity: 1, scaleY: 1, transformOrigin: "top" }}

@@ -15,7 +15,7 @@ export type DropdownMenuSeparatorVariants = VariantProps<
 >;
 
 export const dropdownMenuContentVariants = tcva([
-  "relative w-full overflow-hidden rounded shadow-container z-50",
+  "relative w-full overflow-auto rounded shadow-container z-50",
   "bg-inverse-on-surface dark:bg-inverse-surface",
   "dark:text-surface"
 ]);
