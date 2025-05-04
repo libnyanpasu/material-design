@@ -52,7 +52,7 @@
     "@material/material-color-utilities": "^0.3.0",
     "lodash-es": "^4.17.21"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.10.0",
   "engines": {
     "node": ">=20"
   }
