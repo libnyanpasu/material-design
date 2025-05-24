@@ -9,7 +9,7 @@
   "dependencies": {
     "@libnyanpasu/material-design-react": "workspace:^",
     "@libnyanpasu/material-design-tailwind": "workspace:^",
-    "next": "15.1.7",
+    "next": "15.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
