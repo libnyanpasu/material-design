@@ -24,7 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
     "autoprefixer": "^10.4.20",
-    "babel-plugin-react-compiler": "0.0.0-experimental-fe484b5-20240912",
+    "babel-plugin-react-compiler": "0.0.0-experimental-fe727a3-20250909",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "eslint": "^9.15.0",
